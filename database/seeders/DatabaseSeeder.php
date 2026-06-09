@@ -66,6 +66,29 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Merancang struktur tabel sederhana dan melakukan operasi CRUD data.',
             ],
 
+            // CLI Skills
+            [
+                'name' => 'Artisan CLI',
+                'category' => 'CLI Skills',
+                'level' => 85,
+                'icon' => 'fa-solid fa-terminal',
+                'description' => 'Otomasi pengembangan Laravel menggunakan command line interface.',
+            ],
+            [
+                'name' => 'Git Bash / Terminal',
+                'category' => 'CLI Skills',
+                'level' => 80,
+                'icon' => 'fa-solid fa-code',
+                'description' => 'Manajemen file, navigasi sistem, dan version control melalui baris perintah.',
+            ],
+            [
+                'name' => 'NPM / Composer CLI',
+                'category' => 'CLI Skills',
+                'level' => 75,
+                'icon' => 'fa-solid fa-box-open',
+                'description' => 'Manajemen dependensi proyek frontend dan backend via terminal.',
+            ],
+
             // Tools & Others
             [
                 'name' => 'Git & GitHub',
@@ -96,6 +119,26 @@ class DatabaseSeeder extends Seeder
                 'contribution_percentage' => 100,
             ],
             [
+                'title' => 'Sistem Kasir Sederhana (Java)',
+                'description' => 'Aplikasi kasir berbasis desktop menggunakan Java dan NetBeans. Mengimplementasikan logika transaksi, stok barang, dan laporan penjualan.',
+                'tech_stack' => ['Java', 'NetBeans', 'MySQL'],
+                'image_path' => 'images/projects/ecommerce.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/muhamirudin/sistem-kasir-java',
+                'featured' => true,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'Face Recognition Attendance System',
+                'description' => 'Sistem absensi otomatis menggunakan pengenalan wajah secara real-time untuk meningkatkan efisiensi dan keamanan.',
+                'tech_stack' => ['Python', 'OpenCV', 'AI'],
+                'image_path' => 'images/projects/logistics.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/muhamirudin/attendance-system',
+                'featured' => true,
+                'contribution_percentage' => 90,
+            ],
+            [
                 'title' => 'E-Library Management System',
                 'description' => 'Sistem manajemen perpustakaan digital dengan fitur peminjaman buku dan manajemen inventaris.',
                 'tech_stack' => ['PHP', 'MySQL', 'Bootstrap'],
@@ -103,17 +146,17 @@ class DatabaseSeeder extends Seeder
                 'project_url' => null,
                 'github_url' => 'https://github.com/muhamirudin/elibrary',
                 'featured' => false,
-                'contribution_percentage' => 80,
+                'contribution_percentage' => 85,
             ],
             [
-                'title' => 'Simple Task Manager API',
-                'description' => 'Pengembangan API sederhana untuk manajemen tugas harian, mengimplementasikan basic CRUD logic.',
-                'tech_stack' => ['Laravel', 'REST API'],
-                'image_path' => 'images/projects/logistics.png',
+                'title' => 'E-Commerce API Service',
+                'description' => 'Layanan backend API untuk platform e-commerce, menangani manajemen produk, order, dan integrasi pembayaran.',
+                'tech_stack' => ['Laravel', 'REST API', 'MySQL'],
+                'image_path' => 'images/projects/api.png',
                 'project_url' => null,
-                'github_url' => 'https://github.com/muhamirudin/task-api',
-                'featured' => true,
-                'contribution_percentage' => 75,
+                'github_url' => 'https://github.com/muhamirudin/ecommerce-api',
+                'featured' => false,
+                'contribution_percentage' => 80,
             ],
         ];
 
