@@ -2,11 +2,19 @@
 
 @section('admin_content')
     <div class="admin-header">
-        <div>
-            <h1 class="admin-title">Kelola Proyek</h1>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
-                Tambahkan, perbarui, atau hapus proyek portofolio Anda.
-            </p>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+                <h1 class="admin-title">Kelola Proyek</h1>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+                    Tambahkan, perbarui, atau hapus proyek portofolio Anda.
+                </p>
+            </div>
+            <form action="{{ route('admin.projects.sync') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fa-brands fa-github" style="margin-right: 0.5rem;"></i> Sinkronisasi GitHub
+                </button>
+            </form>
         </div>
     </div>
 
@@ -88,6 +96,7 @@
                                                         data-github-url="{{ $project->github_url }}"
                                                         data-image-path="{{ $project->image_path }}"
                                                         data-featured="{{ $project->featured ? '1' : '0' }}"
+                                                        data-contribution="{{ $project->contribution_percentage }}"
                                                         aria-label="Edit proyek">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
@@ -150,6 +159,14 @@
                         <label for="github_url" class="form-label">Link Repositori (GitHub URL)</label>
                         <input type="url" name="github_url" id="proj_github_url" class="form-control" placeholder="https://github.com/username/repo">
                     </div>
+
+                    <div class="form-group">
+                        <label for="contribution_percentage" class="form-label">Persentase Kontribusi (%)</label>
+                        <input type="number" name="contribution_percentage" id="proj_contribution" class="form-control" min="0" max="100" value="100" required>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                            Seberapa besar kontribusi Anda dalam proyek ini.
+                        </div>
+                    </div>
                     
                     <div class="form-group">
                         <label for="image" class="form-label">Gambar Preview</label>
@@ -197,6 +214,7 @@
             const projTechInput = document.getElementById('proj_tech_stack');
             const projProjUrlInput = document.getElementById('proj_project_url');
             const projGitUrlInput = document.getElementById('proj_github_url');
+            const projContributionInput = document.getElementById('proj_contribution');
             const projFeaturedInput = document.getElementById('proj_featured');
             
             // Image preview fields
@@ -215,6 +233,7 @@
                     const gitUrl = button.getAttribute('data-github-url');
                     const imgPath = button.getAttribute('data-image-path');
                     const featured = button.getAttribute('data-featured');
+                    const contribution = button.getAttribute('data-contribution');
 
                     // 1. Title
                     formTitle.innerHTML = `<i class="fa-solid fa-pen-to-square" style="margin-right: 0.5rem; color: var(--secondary-color);"></i> Edit Proyek: ${title}`;
@@ -225,6 +244,7 @@
                     projTechInput.value = tech;
                     projProjUrlInput.value = projUrl || '';
                     projGitUrlInput.value = gitUrl || '';
+                    projContributionInput.value = contribution || '100';
                     projFeaturedInput.checked = featured === '1';
                     
                     // 3. Image Preview
@@ -268,6 +288,7 @@
                 projTechInput.value = '';
                 projProjUrlInput.value = '';
                 projGitUrlInput.value = '';
+                projContributionInput.value = '100';
                 projFeaturedInput.checked = false;
                 
                 // 3. Hide Preview

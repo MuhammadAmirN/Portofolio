@@ -63,22 +63,11 @@
             
             if (toggle && nav) {
                 toggle.addEventListener('click', () => {
-                    const isOpen = nav.style.display === 'flex';
-                    if (isOpen) {
-                        nav.style.display = 'none';
-                        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                    } else {
-                        nav.style.display = 'flex';
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '70px';
-                        nav.style.left = '0';
-                        nav.style.width = '100%';
-                        nav.style.background = '#0a0e17';
-                        nav.style.padding = '1.5rem';
-                        nav.style.borderBottom = '1px solid var(--border-color)';
-                        nav.style.gap = '1.5rem';
+                    nav.classList.toggle('active');
+                    if (nav.classList.contains('active')) {
                         toggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    } else {
+                        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     }
                 });
 
@@ -86,10 +75,8 @@
                 const links = document.querySelectorAll('.nav-link');
                 links.forEach(link => {
                     link.addEventListener('click', () => {
-                        if (window.innerWidth <= 1024) {
-                            nav.style.display = 'none';
-                            toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                        }
+                        nav.classList.remove('active');
+                        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     });
                 });
             }

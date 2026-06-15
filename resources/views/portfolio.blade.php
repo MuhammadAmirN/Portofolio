@@ -161,7 +161,12 @@
                             
                             <div class="project-img-wrapper">
                                 @if($project->image_path)
-                                    <img src="{{ asset($project->image_path) }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
+                                    @php
+                                        $imageSrc = str_starts_with($project->image_path, 'images/') 
+                                            ? asset($project->image_path) 
+                                            : asset('storage/' . $project->image_path);
+                                    @endphp
+                                    <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
                                 @else
                                     <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
                                         <i class="fa-solid fa-image fa-3x"></i>

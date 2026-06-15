@@ -1175,6 +1175,19 @@ a {
         display: block;
     }
     
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0a0e17;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        gap: 1.5rem;
+    }
+    
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;

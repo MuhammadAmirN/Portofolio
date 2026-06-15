@@ -29,6 +29,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // Projects Management CRUD
     Route::get('/projects', [AdminProjectController::class, 'index'])->name('admin.projects.index');
+    Route::post('/projects/sync', [AdminProjectController::class, 'sync'])->name('admin.projects.sync');
     Route::post('/projects', [AdminProjectController::class, 'store'])->name('admin.projects.store');
     Route::put('/projects/{project}', [AdminProjectController::class, 'update'])->name('admin.projects.update');
     Route::delete('/projects/{project}', [AdminProjectController::class, 'destroy'])->name('admin.projects.destroy');

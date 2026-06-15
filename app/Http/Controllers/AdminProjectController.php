@@ -6,10 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 class AdminProjectController extends Controller
 {
+    public function sync()
+    {
+        try {
+            Artisan::call('app:sync-github-projects', [
+                'username' => 'MuhammadAmirN'
+            ]);
+            return redirect()->route('admin.projects.index')->with('success', 'Proyek berhasil disinkronisasi dari GitHub.');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.projects.index')->with('error', 'Gagal sinkronisasi: ' . $e->getMessage());
+        }
+    }
+
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->get();
