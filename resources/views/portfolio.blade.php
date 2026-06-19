@@ -6,16 +6,16 @@
     <section id="home" class="section hero" style="padding-top: 2rem;">
         <div class="container hero-inner">
             <div class="hero-content">
-                <span class="hero-tag">IT Student & Web Developer</span>
+                <span class="hero-tag">Fullstack Web Developer | AI-Augmented Engineer</span>
                 <h1 class="hero-title">
-                    Halo, saya <span>Muhammad Amir Nurudin</span>.
+                    Hi, I'm <span>Muhammad Amir Nurudin</span>.
                 </h1>
                 <p class="hero-desc">
-                    Saya adalah mahasiswa Teknologi Informasi yang senang membangun aplikasi web dari frontend hingga backend. Saya tertarik pada pengembangan produk digital modern, mengeksplorasi teknologi baru, dan memanfaatkan AI untuk membantu menciptakan solusi yang lebih efektif dan bermanfaat.
+                    Mahasiswa IT Semester 6 yang berfokus membangun produk digital modern, responsif, dan <em>user-centric</em>. Saya mengintegrasikan teknologi Frontend & Backend dengan bantuan perkakas AI modern untuk menghasilkan solusi yang efisien, cepat, dan <em>scalable</em>.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
-                    <a href="#projects" class="btn btn-secondary">Eksplorasi Karya</a>
+                    <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
+                    <a href="#" class="btn btn-secondary" onclick="alert('Fitur Download CV akan segera ditambahkan!'); return false;"><i class="fa-solid fa-download" style="margin-right: 0.5rem;"></i>Download CV</a>
                 </div>
             </div>
             
@@ -24,102 +24,13 @@
                 <div class="hero-avatar-card glass-card">
                     <img src="{{ asset('images/avatar.png') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
                     <h3 class="hero-avatar-name">Amir Nurudin</h3>
-                    <p class="hero-avatar-title">Frontend Enthusiast • IT Student</p>
+                    <p class="hero-avatar-title">Fullstack Developer • AI Power-User</p>
                     <div class="hero-socials">
-                        <a href="https://github.com/muhamirudin" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Tentang Saya</span>
-                <h2 class="section-title">Fokus pada Tampilan & Pengalaman</h2>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        Sebagai mahasiswa jurusan IT di <strong>Universitas Duta Bangsa Surakarta</strong> (Angkatan 2023) yang kini berada di semester 6 (persiapan magang semester 7), saya selalu antusias mempelajari teknologi web terbaru.
-                    </p>
-                    <p>
-                        Fokus utama saya adalah <strong>Frontend Development</strong>. Saya sangat menyukai proses merancang tampilan (UI) yang memanjakan mata dan memberikan pengalaman (UX) yang nyaman bagi pengguna. Meski begitu, saya juga mengembangkan porsi backend secukupnya agar aplikasi web dapat berjalan sempurna secara keseluruhan.
-                    </p>
-                    <div style="margin-top: 2rem;">
-                        <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-code" style="margin-right: 0.5rem;"></i>Lihat Karya Saya</a>
-                    </div>
-                </div>
-                
-                <div class="about-stats">
-                    <div class="stat-card glass-card">
-                        <div class="stat-number">2023</div>
-                        <div class="stat-label">Tahun Angkatan</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Semester Saat Ini</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Proyek GitHub</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Fokus Kualitas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Keahlian</span>
-                <h2 class="section-title">Teknologi yang Saya Kuasai</h2>
-            </div>
-            
-            <div class="skills-grid">
-                @foreach($skills as $category => $items)
-                    <div class="skills-category glass-card">
-                        <h3 class="skills-category-title">
-                            @if($category === 'Backend Development')
-                                <i class="fa-solid fa-server"></i>
-                            @elseif($category === 'Frontend Development')
-                                <i class="fa-solid fa-laptop-code"></i>
-                            @else
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                            @endif
-                            {{ $category }}
-                        </h3>
-                        <div class="skills-list">
-                            @foreach($items as $skill)
-                                <div class="skill-item">
-                                    <div class="skill-header">
-                                        <span class="skill-name">
-                                            <i class="{{ $skill->icon ?: 'fa-solid fa-circle-nodes' }}"></i>
-                                            {{ $skill->name }}
-                                        </span>
-                                        <span class="skill-level">{{ $skill->level }}%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-level="{{ $skill->level }}"></div>
-                                    </div>
-                                    @if($skill->description)
-                                        <p class="skill-desc">{{ $skill->description }}</p>
-                                    @endif
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach
             </div>
         </div>
     </section>
@@ -177,11 +88,14 @@
                             <div class="project-content">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                                     <h3 class="project-title" style="margin-bottom: 0;">{{ $project->title }}</h3>
-                                    <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2);">
-                                        {{ $project->contribution_percentage }}% Effort
+                                    <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); font-weight: bold;">
+                                        Peran: Fullstack
                                     </span>
                                 </div>
-                                <p class="project-desc">{{ $project->description }}</p>
+                                
+                                <div class="project-desc-box" style="margin: 1rem 0; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 8px; font-size: 0.95rem; color: #d1d5db;">
+                                    <p style="margin-bottom: 0;"><strong>Deskripsi:</strong> {{ $project->description }}</p>
+                                </div>
                                 
                                 <div class="project-tags">
                                     @foreach($project->tech_stack ?: [] as $tech)
@@ -209,6 +123,85 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Keahlian & Alat Bantu</span>
+                <h2 class="section-title">Teknologi yang Saya Kuasai</h2>
+            </div>
+            
+            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                @foreach($skills as $category => $items)
+                    <div class="skills-category glass-card" style="padding: 2rem;">
+                        <h3 class="skills-category-title" style="margin-bottom: 1.5rem; font-size: 1.25rem;">
+                            @if($category === 'Backend Development')
+                                <i class="fa-solid fa-server" style="color: var(--primary-color);"></i>
+                            @elseif($category === 'Frontend Development')
+                                <i class="fa-solid fa-laptop-code" style="color: var(--primary-color);"></i>
+                            @else
+                                <i class="fa-solid fa-microchip" style="color: var(--primary-color);"></i>
+                            @endif
+                            {{ $category }}
+                        </h3>
+                        
+                        <div class="skills-badges" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                            @foreach($items as $skill)
+                                <div class="skill-badge" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 20px; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; transition: all 0.3s ease;">
+                                    <i class="{{ $skill->icon ?: 'fa-solid fa-circle-nodes' }}" style="color: var(--primary-color);"></i>
+                                    {{ $skill->name }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Tentang Saya</span>
+                <h2 class="section-title">Membangun Solusi Digital</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Saat ini saya berada di <strong>Semester 6 Program Studi Teknologi Informasi</strong> di <strong>Universitas Duta Bangsa Surakarta</strong> (Angkatan 2023). Saya memiliki passion besar dalam ekosistem pengembangan perangkat lunak modern.
+                    </p>
+                    <p>
+                        Sebagai mahasiswa yang proaktif, saya sangat antusias mengaplikasikan pengetahuan teknis saya ke dunia nyata. <strong>Oleh karena itu, saya secara aktif terbuka dan mencari peluang Magang (Internship) maupun Junior Developer Position</strong> di perusahaan Anda untuk memberikan dampak positif sekaligus menajamkan keahlian industri saya.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane" style="margin-right: 0.5rem;"></i>Mari Berdiskusi</a>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">2023</div>
+                        <div class="stat-label">Tahun Angkatan</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Semester Saat Ini</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">Full</div>
+                        <div class="stat-label">Stack Focus</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Internship Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
@@ -221,7 +214,7 @@
                 <div class="contact-info">
                     <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Mari Bekerja Sama</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
-                        Apakah Anda memiliki proyek menarik, tawaran pekerjaan, atau hanya ingin menyapa? Silakan kirimkan pesan, saya akan merespons secepat mungkin.
+                        Apakah Anda memiliki proyek menarik, tawaran magang/pekerjaan, atau sekadar ingin menyapa? Silakan kirimkan pesan, saya akan merespons secepat mungkin.
                     </p>
                     
                     <div class="contact-info-list">
@@ -247,9 +240,9 @@
                     
                     <h4 class="contact-social-title">Ikuti Saya</h4>
                     <div class="contact-socials">
-                        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -288,7 +281,7 @@
                         
                         <div class="form-group">
                             <label for="subject" class="form-label">Subjek</label>
-                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Judul pesan Anda" value="{{ old('subject') }}">
+                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Tujuan pesan (Misal: Tawaran Magang)" value="{{ old('subject') }}">
                             @error('subject')
                                 <span class="form-error">{{ $message }}</span>
                             @enderror
