@@ -6,15 +6,15 @@
     <section id="home" class="section hero" style="padding-top: 2rem;">
         <div class="container hero-inner">
             <div class="hero-content">
-                <span class="hero-tag">Sinergi Human & AI</span>
+                <span class="hero-tag">IT Student & Web Developer</span>
                 <h1 class="hero-title">
-                    Kreativitas <span>Manusia</span> Berpadu Kecerdasan <span>AI</span>
+                    Membangun Pengalaman Web yang <span>Estetis</span> & <span>Interaktif</span>
                 </h1>
                 <p class="hero-desc">
-                    Saya Muhammad Amir Nurudin, pengembang web yang memadukan intuisi desain manusia dengan efisiensi AI Gemini. Mahasiswa IT di Universitas Duta Bangsa Surakarta yang percaya bahwa masa depan web dibangun melalui kolaborasi cerdas.
+                    Saya adalah mahasiswa Teknologi Informasi yang senang membangun aplikasi web dari frontend hingga backend. Saya tertarik pada pengembangan produk digital modern, mengeksplorasi teknologi baru, dan memanfaatkan AI untuk membantu menciptakan solusi yang lebih efektif dan bermanfaat.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Mulai Kolaborasi</a>
+                    <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
                     <a href="#projects" class="btn btn-secondary">Eksplorasi Karya</a>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="hero-avatar-card glass-card">
                     <img src="{{ asset('images/avatar.png') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
                     <h3 class="hero-avatar-name">Amir Nurudin</h3>
-                    <p class="hero-avatar-title">Human Intelligence • AI Augmented</p>
+                    <p class="hero-avatar-title">Frontend Enthusiast • IT Student</p>
                     <div class="hero-socials">
                         <a href="https://github.com/muhamirudin" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -39,20 +39,20 @@
     <section id="about" class="section about">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Filosofi Kerja</span>
-                <h2 class="section-title">50% Intuisi, 50% Otomasi</h2>
+                <span class="section-subtitle">Tentang Saya</span>
+                <h2 class="section-title">Fokus pada Tampilan & Pengalaman</h2>
             </div>
             
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        Sebagai mahasiswa IT di <strong>Universitas Duta Bangsa Surakarta</strong> (Angkatan 2023), saya tidak hanya belajar menulis kode, tapi juga bagaimana memanfaatkan teknologi AI seperti Gemini untuk mempercepat proses kreatif.
+                        Sebagai mahasiswa jurusan IT di <strong>Universitas Duta Bangsa Surakarta</strong> (Angkatan 2023) yang kini berada di semester 6 (persiapan magang semester 7), saya selalu antusias mempelajari teknologi web terbaru.
                     </p>
                     <p>
-                        Pendekatan saya adalah <strong>Hybrid Development</strong>: 50% fokus pada estetika dan pengalaman pengguna yang saya rancang secara personal, dan 50% memanfaatkan efisiensi AI untuk mengoptimalkan struktur backend dan performa sistem.
+                        Fokus utama saya adalah <strong>Frontend Development</strong>. Saya sangat menyukai proses merancang tampilan (UI) yang memanjakan mata dan memberikan pengalaman (UX) yang nyaman bagi pengguna. Meski begitu, saya juga mengembangkan porsi backend secukupnya agar aplikasi web dapat berjalan sempurna secara keseluruhan.
                     </p>
                     <div style="margin-top: 2rem;">
-                        <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 0.5rem;"></i>Lihat Sinergi Kami</a>
+                        <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-code" style="margin-right: 0.5rem;"></i>Lihat Karya Saya</a>
                     </div>
                 </div>
                 
