@@ -8,7 +8,7 @@
             <div class="hero-content">
                 <span class="hero-tag">IT Student & Web Developer</span>
                 <h1 class="hero-title">
-                    Membangun Pengalaman Web yang <span>Estetis</span> & <span>Interaktif</span>
+                    Halo, saya <span>Muhammad Amir Nurudin</span>.
                 </h1>
                 <p class="hero-desc">
                     Saya adalah mahasiswa Teknologi Informasi yang senang membangun aplikasi web dari frontend hingga backend. Saya tertarik pada pengembangan produk digital modern, mengeksplorasi teknologi baru, dan memanfaatkan AI untuk membantu menciptakan solusi yang lebih efektif dan bermanfaat.
