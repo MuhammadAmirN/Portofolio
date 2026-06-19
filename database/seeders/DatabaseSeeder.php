@@ -27,75 +27,73 @@ class DatabaseSeeder extends Seeder
 
         // 2. Seed Skills
         $skillsData = [
-            // Frontend Development (lebih suka - ~90%)
+            // Frontend Development
             [
                 'name' => 'Responsive Web Design',
                 'category' => 'Frontend Development',
                 'level' => 95,
                 'icon' => 'fa-solid fa-mobile-screen-button',
-                'description' => 'Membangun antarmuka yang adaptif untuk berbagai ukuran layar menggunakan CSS modern.',
+                'description' => 'Membangun antarmuka yang adaptif untuk berbagai ukuran layar menggunakan CSS modern dan framework seperti Tailwind/Bootstrap.',
             ],
             [
-                'name' => 'JavaScript (DOM Manipulation)',
+                'name' => 'JavaScript (DOM & Node.js)',
                 'category' => 'Frontend Development',
                 'level' => 90,
                 'icon' => 'fa-brands fa-js',
-                'description' => 'Membuat elemen web interaktif dan reaktif dengan JavaScript murni maupun library.',
+                'description' => 'Membuat elemen interaktif, manipulasi DOM murni, integrasi API, serta pengembangan Bot WhatsApp menggunakan Node.js.',
             ],
             [
                 'name' => 'UI/UX Implementation',
                 'category' => 'Frontend Development',
                 'level' => 88,
                 'icon' => 'fa-solid fa-palette',
-                'description' => 'Menerjemahkan desain visual menjadi kode frontend yang presisi dan fungsional.',
+                'description' => 'Menerjemahkan desain visual menjadi kode frontend yang presisi, responsif, fungsional, dan memiliki estetika Glassmorphism/Dark Mode.',
             ],
 
-            // Backend Development (setengahnya - ~50%)
+            // Backend Development
             [
-                'name' => 'Laravel (Basic & Intermediate)',
+                'name' => 'Laravel Ecosystem',
                 'category' => 'Backend Development',
-                'level' => 55,
-                'icon' => 'fa-brands fa-laravel',
-                'description' => 'Mengelola routing, controller, dan integrasi database melalui Eloquent ORM.',
-            ],
-            [
-                'name' => 'Database Management (MySQL)',
-                'category' => 'Backend Development',
-                'level' => 50,
-                'icon' => 'fa-solid fa-database',
-                'description' => 'Merancang struktur tabel sederhana dan melakukan operasi CRUD data.',
-            ],
-
-            // CLI Skills
-            [
-                'name' => 'Artisan CLI',
-                'category' => 'CLI Skills',
                 'level' => 85,
-                'icon' => 'fa-solid fa-terminal',
-                'description' => 'Otomasi pengembangan Laravel menggunakan command line interface.',
+                'icon' => 'fa-brands fa-laravel',
+                'description' => 'Mengelola routing, controller, integrasi database Eloquent ORM, hingga deployment aplikasi live (hosting) seperti Railway.',
             ],
             [
-                'name' => 'Git Bash / Terminal',
-                'category' => 'CLI Skills',
+                'name' => 'Python & Flask',
+                'category' => 'Backend Development',
                 'level' => 80,
-                'icon' => 'fa-solid fa-code',
-                'description' => 'Manajemen file, navigasi sistem, dan version control melalui baris perintah.',
+                'icon' => 'fa-brands fa-python',
+                'description' => 'Pembuatan algoritma kriptografi hibrida (AES-RSA), sistem reservasi tiket, kalkulator, serta API manajemen data mahasiswa dengan Flask.',
             ],
             [
-                'name' => 'NPM / Composer CLI',
-                'category' => 'CLI Skills',
-                'level' => 75,
-                'icon' => 'fa-solid fa-box-open',
-                'description' => 'Manajemen dependensi proyek frontend dan backend via terminal.',
+                'name' => 'Database Management',
+                'category' => 'Backend Development',
+                'level' => 85,
+                'icon' => 'fa-solid fa-database',
+                'description' => 'Perancangan arsitektur database, normalisasi relasi data, dan operasi CRUD kompleks menggunakan MySQL dan SQLite.',
             ],
 
             // Tools & Others
             [
                 'name' => 'Git & GitHub',
-                'category' => 'Tools',
+                'category' => 'Tools & Security',
                 'level' => 85,
                 'icon' => 'fa-brands fa-github',
-                'description' => 'Manajemen versi kode dan kolaborasi proyek melalui platform GitHub.',
+                'description' => 'Manajemen versi kode dan kolaborasi aktif (20+ repositori) di platform GitHub.',
+            ],
+            [
+                'name' => 'Security & Cryptography',
+                'category' => 'Tools & Security',
+                'level' => 75,
+                'icon' => 'fa-solid fa-shield-halved',
+                'description' => 'Pemahaman mengenai konsep keamanan sistem dan implementasi dasar enkripsi (AES/RSA).',
+            ],
+            [
+                'name' => 'Mobile & Other Languages',
+                'category' => 'Tools & Security',
+                'level' => 65,
+                'icon' => 'fa-solid fa-mobile-screen',
+                'description' => 'Memiliki fondasi logika pemrograman yang kuat di C++ dan dasar pengembangan lintas platform menggunakan Flutter (Dart).',
             ],
         ];
 
@@ -120,11 +118,21 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'DASHBOARD_IOT',
-                'description' => 'Platform monitoring Internet of Things (IoT) untuk memantau data sensor secara real-time dengan antarmuka yang intuitif.',
-                'tech_stack' => ['JavaScript', 'IoT', 'API', 'CSS'],
+                'description' => 'Membangun aplikasi web IoT untuk praktikum bandul matematis. Meliputi pengembangan frontend, logika backend Laravel, integrasi database MySQL, hingga deployment dan hosting aplikasi.',
+                'tech_stack' => ['Laravel', 'MySQL', 'JavaScript', 'IoT'],
                 'image_path' => 'images/projects/logistics.png',
                 'project_url' => null,
-                'github_url' => 'https://github.com/MuhammadAmirN/DASHBOARD_IOT',
+                'github_url' => 'https://github.com/MuhammadAmirN/Dashboard_IoT',
+                'featured' => true,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'BOT_WHATSAPP_NODEJS',
+                'description' => 'Sistem bot WhatsApp otomatis dan interaktif yang dibangun menggunakan ekosistem Node.js.',
+                'tech_stack' => ['JavaScript', 'Node.js', 'WhatsApp API'],
+                'image_path' => 'images/projects/ecommerce.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/botWA',
                 'featured' => true,
                 'contribution_percentage' => 100,
             ],
@@ -159,18 +167,8 @@ class DatabaseSeeder extends Seeder
                 'contribution_percentage' => 100,
             ],
             [
-                'title' => 'WEBSITE_ONLINE_LOUNDRY',
-                'description' => 'Layanan manajemen laundry online yang memungkinkan pelanggan memantau status cucian mereka secara transparan.',
-                'tech_stack' => ['Laravel', 'MySQL', 'Tailwind CSS'],
-                'image_path' => 'images/projects/ecommerce.png',
-                'project_url' => null,
-                'github_url' => 'https://github.com/MuhammadAmirN/WEBSITE_ONLINE_LOUNDRY',
-                'featured' => false,
-                'contribution_percentage' => 95,
-            ],
-            [
                 'title' => 'MANAJEMEN-DATA-MAHASISWA',
-                'description' => 'Aplikasi manajemen data mahasiswa menggunakan framework Flask dan database SQLite dengan fitur CRUD lengkap.',
+                'description' => 'Aplikasi API manajemen data mahasiswa menggunakan framework Flask dan database SQLite dengan fitur CRUD lengkap.',
                 'tech_stack' => ['Python', 'Flask', 'SQLite'],
                 'image_path' => 'images/projects/portfolio.png',
                 'project_url' => null,
