@@ -22,7 +22,7 @@
             <div class="hero-illustration">
                 <div class="hero-img-glow"></div>
                 <div class="hero-avatar-card glass-card">
-                    <img src="{{ asset('images/avatar.png') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
+                    <img src="{{ asset('images/avatar.jpg') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
                     <h3 class="hero-avatar-name">Amir Nurudin</h3>
                     <p class="hero-avatar-title">Fullstack Developer • AI Power-User</p>
                     <div class="hero-socials">
@@ -89,7 +89,7 @@
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                                     <h3 class="project-title" style="margin-bottom: 0;">{{ $project->title }}</h3>
                                     <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); font-weight: bold;">
-                                        Peran: Fullstack
+                                        Peran: {{ $project->role ?? 'Fullstack' }}
                                     </span>
                                 </div>
                                 
@@ -315,61 +315,116 @@
             </div>
             
             <div class="cv-paper">
-                <!-- Left Sidebar -->
-                <div class="cv-left">
-                    <div class="cv-avatar-wrapper">
-                        <img src="{{ asset('images/avatar.png') }}" alt="Muhammad Amir Nurudin">
+                <div class="cv-body">
+                    <!-- CV Header -->
+                    <div class="cv-header-section">
+                        <h1 class="cv-name">MUHAMMAD AMIR NURUDIN</h1>
+                        <div class="cv-contact-info">
+                            <span>+62 821-4515-3914</span> | 
+                            <span>Muhamir6@gmail.com</span> | 
+                            <span>Klaten, Jawa Tengah</span>
+                        </div>
+                        <div class="cv-contact-links">
+                            <span>linkedin.com/in/muhammad-amir-nurudin</span> | 
+                            <span>github.com/MuhammadAmirN</span>
+                        </div>
                     </div>
                     
-                    <div class="cv-section-title">KONTAK</div>
-                    <div class="cv-contact-item"><strong>WhatsApp</strong><br>+62 821-4515-3914</div>
-                    <div class="cv-contact-item"><strong>Email</strong><br>Muhamir6@gmail.com</div>
-                    <div class="cv-contact-item"><strong>Github</strong><br>https://github.com/MuhammadAmirN</div>
-                    <div class="cv-contact-item"><strong>Lokasi</strong><br>Klaten, Jawa Tengah</div>
-                    
-                    <div class="cv-section-title" style="margin-top: 1.5rem;">KEAHLIAN</div>
-                    <ul class="cv-skills-list">
-                        <li>PHP/Laravel</li>
-                        <li>MySQL</li>
-                        <li>Python</li>
-                        <li>HTML/CSS/JS</li>
-                        <li>Canva/Figma Design</li>
-                        <li>Git/Github</li>
-                        <li>Teamwork</li>
-                        <li>IoT Simulation (Wokwi)</li>
-                    </ul>
-                </div>
-                
-                <!-- Right Main -->
-                <div class="cv-right">
-                    <h1 class="cv-name">MUHAMMAD AMIR<br>NURUDIN</h1>
-                    
-                    <h2 class="cv-header-dark">TENTANG SAYA</h2>
-                    <p class="cv-text">Mahasiswa semester 6 Teknik Informatika di Universitas Duta Bangsa Surakarta dengan penjurusan Internet of Things (IoT). Memiliki pengalaman dalam pengembangan aplikasi web menggunakan framework Laravel serta simulasi sistem hardware menggunakan Wokwi di semester ini.</p>
-                    
-                    <h2 class="cv-header-dark">PENGALAMAN</h2>
-                    <div class="cv-item">
-                        <div class="cv-item-title">KKN-T UDB Surakarta (Desa Karangasem)</div>
-                        <div class="cv-item-subtitle">Divisi Publikasi & Dokumentasi / Des 2025 - Jan 2026</div>
-                        <p class="cv-text">Bertanggung jawab dalam desain identitas program (logo dan banner) serta melakukan digitalisasi data UMKM keripik singkong melalui pembuatan konten dan packaging.</p>
+                    <!-- Profil Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">PROFIL</h2>
+                        <div class="cv-section-line"></div>
+                        <p class="cv-text">
+                            Mahasiswa Teknik Informatika semester 6 di Universitas Duta Bangsa Surakarta yang fokus pada pemrograman web dan Internet of Things (IoT). Berpengalaman dalam membangun aplikasi web dengan framework Laravel, integrasi database MySQL, pemrograman Python (Flask & Streamlit), serta pemrograman Node.js. Terbiasa menggunakan alat bantu kecerdasan buatan (AI) modern untuk mempercepat proses debugging, optimasi kode, dan pemecahan masalah teknis demi menghasilkan solusi yang efisien, bersih, dan siap pakai.
+                        </p>
                     </div>
                     
-                    <h2 class="cv-header-dark">PENDIDIKAN</h2>
-                    <div class="cv-item">
-                        <div class="cv-item-title">Universitas Duta Bangsa Surakarta</div>
-                        <div class="cv-item-subtitle">S1 Teknik Informatika / 2023 - Sekarang</div>
-                        <div class="cv-item-subtitle" style="font-weight:bold; color:#000;">IPK Terakhir : 4.00</div>
+                    <!-- Pendidikan Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">PENDIDIKAN</h2>
+                        <div class="cv-section-line"></div>
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">S1 Teknik Informatika - Universitas Duta Bangsa Surakarta</span>
+                                <span class="cv-item-date">2023 - Sekarang</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Semester 6 (Aktif) | IPK Terakhir: 4.00</div>
+                            <p class="cv-text-muted">Mata Kuliah Relevan: Pemrograman Web, Pemrograman Mobile, Basis Data, Internet of Things (IoT), Struktur Data, Rekayasa Perangkat Lunak.</p>
+                        </div>
                     </div>
                     
-                    <h2 class="cv-header-dark">PROYEK IT</h2>
-                    <div class="cv-item">
-                        <div class="cv-item-title">Sistem Order Management (Web-based)</div>
-                        <div class="cv-item-subtitle">Laravel framework, MySQL</div>
-                        <p class="cv-text">Membangun aplikasi self-service untuk user dalam melakukan pemesanan dan dashboard admin bagi kasir untuk mengelola transaksi secara efisien dan untuk user offline, dan masi dalam perkembangan role management untuk memantau laporan keuangan.</p>
+                    <!-- Keahlian Teknis Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">KEAHLIAN TEKNIS</h2>
+                        <div class="cv-section-line"></div>
+                        <div class="cv-skills-grid">
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap, Blade Templating</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Backend:</strong> PHP (Laravel), Node.js, Python (Flask, Streamlit)</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Database:</strong> MySQL, SQLite</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Hardware & IoT:</strong> ESP32, Simulasi Wokwi, IoT Sensors & Actuators</p>
+                            <p class="cv-text" style="margin-bottom: 0;"><strong>Tools & Others:</strong> Git, GitHub, RESTful API, AI-Assisted Development</p>
+                        </div>
                     </div>
-                    <div class="cv-item">
-                        <div class="cv-item-title">Simulasi Sistem Monitoring Sensor (Wokwi).</div>
-                        <p class="cv-text">Merancang simulasi sistem input-output pada ESP32 menggunakan LED, Push Button, Potensiometer, dan LCD I2C 16x2 melalui platform Wokwi untuk memahami logika kendali hardware secara real-time.</p>
+                    
+                    <!-- Project Akademik Dan Non Akademik Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">PROJECT AKADEMIK DAN NON AKADEMIK</h2>
+                        <div class="cv-section-line"></div>
+                        
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Dashboard IoT - Bandul Matematis (Web & Hardware Integration)</span>
+                                <span class="cv-item-date">2026</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Fullstack Developer & IoT Engineer | Github: github.com/MuhammadAmirN/Dashboard_IoT</div>
+                            <ul class="cv-bullet-list">
+                                <li>Membangun aplikasi web IoT lengkap untuk monitoring praktikum fisika bandul matematis secara real-time.</li>
+                                <li>Mengintegrasikan logika backend Laravel dengan database MySQL untuk menyimpan data telemetri bandul.</li>
+                                <li>Mengimplementasikan dashboard interaktif dengan grafik visualisasi data sensor untuk mempermudah analisis.</li>
+                                <li>Melakukan deployment dan konfigurasi hosting penuh agar aplikasi dapat diakses secara publik.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Nfa Dashboard (Data Analytics & Monitoring)</span>
+                                <span class="cv-item-date">2025</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Frontend Developer | Github: github.com/MuhammadAmirN/NFA_DASHBOARD</div>
+                            <ul class="cv-bullet-list">
+                                <li>Mengembangkan antarmuka dashboard monitoring infrastruktur server yang modern dan responsif.</li>
+                                <li>Menggunakan HTML, CSS, dan JavaScript murni untuk menyajikan visualisasi data analitik performa sistem secara interaktif.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Bot WhatsApp Node.js (Automation System)</span>
+                                <span class="cv-item-date">2025</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Backend Developer | Github: github.com/MuhammadAmirN/botWA</div>
+                            <ul class="cv-bullet-list">
+                                <li>Merancang dan membangun bot WhatsApp otomatis berbasis Node.js untuk menangani respon pesan interaktif.</li>
+                                <li>Mengintegrasikan WhatsApp API untuk otomasi alur percakapan dengan performa tinggi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pengalaman Non-Akademik / Sertifikasi Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">PENGALAMAN NON-AKADEMIK & SERTIFIKASI</h2>
+                        <div class="cv-section-line"></div>
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">KKN-T Universitas Duta Bangsa Surakarta (Desa Karangasem)</span>
+                                <span class="cv-item-date">Des 2025 - Jan 2026</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Divisi Publikasi, Dokumentasi & Desain</div>
+                            <ul class="cv-bullet-list">
+                                <li>Mendesain identitas visual program (logo program kerja dan banner) menggunakan Canva & Illustrator.</li>
+                                <li>Mendukung digitalisasi produk UMKM keripik singkong melalui pembuatan aset konten kreatif dan pembaruan packaging produk untuk meningkatkan nilai jual di pasar digital.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -386,151 +441,201 @@
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            padding-bottom: 50px;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            padding: 20px 0;
         }
         .cv-modal-content {
-            background-color: #f0f2f5;
-            margin: 5% auto;
-            padding: 20px;
+            background-color: #f3f4f6;
+            margin: 2% auto;
+            padding: 24px;
             border-radius: 12px;
             width: 90%;
-            max-width: 850px;
+            max-width: 900px;
             position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
         }
         .cv-close-btn {
-            color: #aaa;
+            color: #4b5563;
             float: right;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: -10px;
+            margin-top: -15px;
+            transition: color 0.2s;
         }
         .cv-close-btn:hover {
-            color: #000;
+            color: #ef4444;
         }
         
-        /* CV Paper Styling */
+        /* CV Paper Styling - ATS B&W Portrait */
         .cv-paper {
-            display: flex;
-            background: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             border-radius: 4px;
-            overflow: hidden;
+            line-height: 1.4;
+            max-width: 100%;
+            margin: 0 auto;
             text-align: left;
         }
-        .cv-left {
-            width: 35%;
-            background-color: #1a2538;
-            color: #fff;
-            padding: 2rem 1.5rem;
+        
+        .cv-body {
+            width: 100%;
         }
-        .cv-right {
-            width: 65%;
-            background-color: #f8f9fa;
-            padding: 2rem 2.5rem;
-        }
-        .cv-avatar-wrapper {
+
+        .cv-header-section {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
         }
-        .cv-avatar-wrapper img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background-color: #ff3333;
-            border: 3px solid #1a2538;
-            box-shadow: 0 0 0 3px #fff;
-            object-fit: cover;
-        }
-        .cv-section-title {
-            background: #fff;
-            color: #1a2538;
-            text-align: center;
-            padding: 0.4rem;
+
+        .cv-header-section .cv-name {
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 20px;
-            margin-bottom: 1.2rem;
-            letter-spacing: 1px;
-            font-size: 0.95rem;
-        }
-        .cv-contact-item {
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-        .cv-contact-item strong {
-            font-size: 0.9rem;
-        }
-        .cv-skills-list {
-            list-style: none;
-            padding: 0;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-left: 0;
-        }
-        .cv-skills-list li {
-            margin-bottom: 0.8rem;
-        }
-        .cv-name {
-            color: #1a2538;
-            font-size: 2.2rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-        .cv-header-dark {
-            background-color: #0b1a30;
-            color: #fff;
-            padding: 0.3rem 1rem;
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            display: inline-block;
-            margin-top: 1rem;
+            color: #000000;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
+
+        .cv-contact-info, .cv-contact-links {
+            font-size: 11px;
+            color: #333333;
+            margin-bottom: 4px;
+        }
+
+        .cv-contact-info span, .cv-contact-links span {
+            margin: 0 6px;
+        }
+
+        .cv-section {
+            margin-top: 18px;
+        }
+
+        .cv-section-title-ats {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+            margin: 0 0 2px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cv-section-line {
+            height: 1px;
+            background-color: #000000;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
         .cv-text {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #444;
-            margin-bottom: 1rem;
+            font-size: 11px;
+            color: #111111;
+            margin-bottom: 6px;
             text-align: justify;
+            line-height: 1.4;
         }
-        .cv-item {
-            margin-bottom: 1.2rem;
+
+        .cv-text-muted {
+            font-size: 11px;
+            color: #333333;
+            margin-bottom: 4px;
+            line-height: 1.4;
         }
+
+        .cv-item-ats {
+            margin-bottom: 12px;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 2px;
+            color: #000000;
+        }
+
         .cv-item-title {
             font-weight: bold;
-            color: #1a2538;
-            font-size: 1rem;
         }
-        .cv-item-subtitle {
+
+        .cv-item-date {
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .cv-item-subtitle-ats {
             font-style: italic;
-            font-size: 0.85rem;
-            color: #555;
-            margin-bottom: 0.4rem;
+            font-size: 11px;
+            color: #222222;
+            margin-bottom: 4px;
         }
-        
+
+        .cv-skills-grid {
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .cv-bullet-list {
+            list-style-type: disc;
+            margin-top: 2px;
+            margin-bottom: 6px;
+            padding-left: 20px;
+        }
+
+        .cv-bullet-list li {
+            font-size: 11px;
+            color: #111111;
+            margin-bottom: 2px;
+            line-height: 1.35;
+        }
+
         @media print {
             body * { visibility: hidden; }
-            .cv-paper, .cv-paper * { visibility: visible; }
-            .cv-paper {
+            #cvPreviewModal, .cv-modal-content, .cv-paper, .cv-paper * { visibility: visible; }
+            .cv-modal {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
-                box-shadow: none;
+                height: auto;
+                background-color: transparent !important;
+                backdrop-filter: none !important;
+                padding: 0 !important;
+            }
+            .cv-modal-content {
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .cv-paper {
+                box-shadow: none !important;
+                padding: 0px !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            .cv-close-btn, button, .btn {
+                display: none !important;
             }
         }
         @media (max-width: 768px) {
             .cv-paper {
-                flex-direction: column;
+                padding: 20px 25px;
             }
-            .cv-left, .cv-right {
-                width: 100%;
+            .cv-item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cv-item-date {
+                margin-top: 2px;
             }
         }
     </style>
