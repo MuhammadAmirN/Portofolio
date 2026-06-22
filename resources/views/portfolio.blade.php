@@ -27,8 +27,8 @@
                     <p class="hero-avatar-title">Fullstack Developer • AI Power-User</p>
                     <div class="hero-socials">
                         <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="mailto:Muhamir6@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:muhamir6n@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="contact-info-details">
                                 <h4>Email</h4>
-                                <p>muhamirn6@gmail.com</p>
+                                <p>muhamir6n@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
@@ -241,8 +241,8 @@
                     <h4 class="contact-social-title">Ikuti Saya</h4>
                     <div class="contact-socials">
                         <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="mailto:Muhamir6@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:muhamir6n@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
                 
@@ -320,12 +320,12 @@
                     <div class="cv-header-section">
                         <h1 class="cv-name">MUHAMMAD AMIR NURUDIN</h1>
                         <div class="cv-contact-info">
-                            <span>+62 821-4515-3914</span> | 
-                            <span>Muhamir6@gmail.com</span> | 
+                            <span>+62 821-4515-3914</span> |
+                            <span>muhamir6n@gmail.com</span> |
                             <span>Klaten, Jawa Tengah</span>
                         </div>
                         <div class="cv-contact-links">
-                            <span>linkedin.com/in/muhammad-amir-nurudin</span> | 
+                            <span>linkedin.com/in/muh-amir-n-a1a94b418/</span> |
                             <span>github.com/MuhammadAmirN</span>
                         </div>
                     </div>
@@ -387,13 +387,15 @@
                         
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Nfa Dashboard (Data Analytics & Monitoring)</span>
+                                <span class="cv-item-title">Sistem Laundry Mataram (Full Stack Web Application)</span>
                                 <span class="cv-item-date">2025</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Frontend Developer | Github: github.com/MuhammadAmirN/NFA_DASHBOARD</div>
+                            <div class="cv-item-subtitle-ats">Full Stack Developer | Github: github.com/MuhammadAmirN/loundry_mataram-laravel</div>
                             <ul class="cv-bullet-list">
-                                <li>Mengembangkan antarmuka dashboard monitoring infrastruktur server yang modern dan responsif.</li>
-                                <li>Menggunakan HTML, CSS, dan JavaScript murni untuk menyajikan visualisasi data analitik performa sistem secara interaktif.</li>
+                                <li>Merancang dan mengimplementasikan sistem manajemen laundry lengkap dengan fitur CRUD (Create, Read, Update, Delete).</li>
+                                <li>Mengintegrasikan role-based access control untuk berbagai tingkatan pengguna (admin, staff, customer).</li>
+                                <li>Membangun modul laporan keuangan yang komprehensif dengan visualisasi data untuk analisis bisnis.</li>
+                                <li>Menggunakan Laravel framework dengan MySQL database untuk performa dan skalabilitas optimal.</li>
                             </ul>
                         </div>
 
@@ -412,7 +414,7 @@
 
                     <!-- Pengalaman Non-Akademik / Sertifikasi Section -->
                     <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PENGALAMAN NON-AKADEMIK & SERTIFIKASI</h2>
+                        <h2 class="cv-section-title-ats">PENGALAMAN & KONTRIBUSI</h2>
                         <div class="cv-section-line"></div>
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
@@ -423,6 +425,19 @@
                             <ul class="cv-bullet-list">
                                 <li>Mendesain identitas visual program (logo program kerja dan banner) menggunakan Canva & Illustrator.</li>
                                 <li>Mendukung digitalisasi produk UMKM keripik singkong melalui pembuatan aset konten kreatif dan pembaruan packaging produk untuk meningkatkan nilai jual di pasar digital.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Asisten Manajemen Bisnis - Usaha Mebel Keluarga</span>
+                                <span class="cv-item-date">2023 - Sekarang</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Pendampingan & Optimisasi Proses Bisnis</div>
+                            <ul class="cv-bullet-list">
+                                <li>Membantu ayah mengelola operasional bisnis mebel termasuk inventory management dan customer relationship.</li>
+                                <li>Menerapkan prinsip-prinsip manajemen dan efisiensi proses untuk peningkatan produktivitas.</li>
+                                <li>Pengalaman praktis dalam menjalankan bisnis kecil dan memahami dinamika pasar lokal.</li>
                             </ul>
                         </div>
                     </div>
