@@ -326,7 +326,8 @@
                         </div>
                         <div class="cv-contact-links">
                             <span>linkedin.com/in/muh-amir-n-a1a94b418/</span> |
-                            <span>github.com/MuhammadAmirN</span>
+                            <span>github.com/MuhammadAmirN</span> |
+                            <span>Portfolio: amir-portfolio.com</span>
                         </div>
                     </div>
                     
@@ -335,7 +336,7 @@
                         <h2 class="cv-section-title-ats">PROFIL</h2>
                         <div class="cv-section-line"></div>
                         <p class="cv-text">
-                            Mahasiswa Teknik Informatika semester 6 di Universitas Duta Bangsa Surakarta yang fokus pada pemrograman web dan Internet of Things (IoT). Berpengalaman dalam membangun aplikasi web dengan framework Laravel, integrasi database MySQL, pemrograman Python (Flask & Streamlit), serta pemrograman Node.js. Terbiasa menggunakan alat bantu kecerdasan buatan (AI) modern untuk mempercepat proses debugging, optimasi kode, dan pemecahan masalah teknis demi menghasilkan solusi yang efisien, bersih, dan siap pakai.
+                            Mahasiswa Teknik Informatika Semester 6 di Universitas Duta Bangsa Surakarta dengan passion dalam fullstack web development, IoT systems, dan AI-assisted development. Berpengalaman membangun aplikasi web production-ready menggunakan Laravel, Python, Java, dan Node.js. Terbukti dapat merancang sistem kompleks dari database design hingga user interface. Aktif mencari kesempatan magang (internship) untuk mengaplikasikan technical skills dan berkontribusi pada proyek real-world. Familiar dengan modern development tools dan best practices, serta passionate dalam continuous learning dan problem-solving.
                         </p>
                     </div>
                     
@@ -358,11 +359,12 @@
                         <h2 class="cv-section-title-ats">KEAHLIAN TEKNIS</h2>
                         <div class="cv-section-line"></div>
                         <div class="cv-skills-grid">
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap, Blade Templating</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Backend:</strong> PHP (Laravel), Node.js, Python (Flask, Streamlit)</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Database:</strong> MySQL, SQLite</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Hardware & IoT:</strong> ESP32, Simulasi Wokwi, IoT Sensors & Actuators</p>
-                            <p class="cv-text" style="margin-bottom: 0;"><strong>Tools & Others:</strong> Git, GitHub, RESTful API, AI-Assisted Development</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Frontend Development:</strong> HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, Blade Templating, Responsive Design</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Backend Development:</strong> PHP (Laravel), Python (Flask, Streamlit), Node.js (Express), Java</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Database & ORM:</strong> MySQL, SQLite, Query Optimization, Database Design, Normalization</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>IoT & Hardware:</strong> ESP32, Arduino, IoT Sensors, Actuators, Hardware Integration, Wokwi Simulator</p>
+                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Development Tools:</strong> Git, GitHub, RESTful API, CRUD Operations, Version Control</p>
+                            <p class="cv-text" style="margin-bottom: 0;"><strong>Methodologies:</strong> Agile Development, MVC Architecture, OOP Principles, AI-Assisted Development (Claude, GitHub Copilot)</p>
                         </div>
                     </div>
                     
@@ -408,36 +410,86 @@
                             <ul class="cv-bullet-list">
                                 <li>Merancang dan membangun bot WhatsApp otomatis berbasis Node.js untuk menangani respon pesan interaktif.</li>
                                 <li>Mengintegrasikan WhatsApp API untuk otomasi alur percakapan dengan performa tinggi.</li>
+                                <li>Implementasi message handling, command routing, dan database integration untuk persistence data.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Sistem Pemesanan Laundry (Python Backend)</span>
+                                <span class="cv-item-date">2024</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Backend Developer | Github: github.com/MuhammadAmirN/pemesanan-loundry</div>
+                            <ul class="cv-bullet-list">
+                                <li>Membangun sistem pemesanan laundry berbasis Python dengan OOP principles yang solid.</li>
+                                <li>Implementasi database design untuk mengelola customers, bookings, payments, dan evaluations.</li>
+                                <li>Mengintegrasikan evaluasi komprehensif untuk quality, price, time delivery, dan payment methods.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Sistem Kasir Sederhana (Java Desktop Application)</span>
+                                <span class="cv-item-date">2024</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Fullstack Developer | Github: github.com/MuhammadAmirN/kasir-sederhana</div>
+                            <ul class="cv-bullet-list">
+                                <li>Mengembangkan Point of Sale (POS) system berbasis Java dengan GUI menggunakan Swing/JavaFX.</li>
+                                <li>Implementasi inventory management, transaction logging, dan financial reports generation.</li>
+                                <li>Database integration dengan proper schema design untuk product, transaction, dan customer data.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Pengalaman Non-Akademik / Sertifikasi Section -->
+                    <!-- Projek Tambahan Section -->
                     <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PENGALAMAN & KONTRIBUSI</h2>
+                        <h2 class="cv-section-title-ats">PROJEK TAMBAHAN</h2>
                         <div class="cv-section-line"></div>
+                        <p class="cv-text" style="margin-bottom: 0.5rem;">Portfolio mencakup 14+ projects dengan diverse tech stack: <strong>Laravel e-commerce platforms, Python Flask web applications, Management systems (student data, cafe reservations), JavaScript/HTML5 landing pages, dan IoT monitoring dashboards.</strong> Semua projects tersedia di GitHub dengan documentation lengkap.</p>
+                    </div>
+
+                    <!-- Pengalaman & Kontribusi Section -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title-ats">PENGALAMAN PRAKTIK & KONTRIBUSI</h2>
+                        <div class="cv-section-line"></div>
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Praktik Bisnis - Usaha Mebel Keluarga</span>
+                                <span class="cv-item-date">2023 - Sekarang (Ongoing)</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Technical Assistant & Business Operations</div>
+                            <ul class="cv-bullet-list">
+                                <li>Membantu mengelola operasional bisnis mebel termasuk inventory management, sales tracking, dan customer relationship management.</li>
+                                <li>Menganalisis dan menerapkan process optimization untuk meningkatkan efisiensi dan produktivitas bisnis.</li>
+                                <li>Practical experience dalam memahami business requirements dan menerjemahkannya ke technical solutions.</li>
+                                <li>Hands-on experience dalam real-world business challenges dan problem-solving approaches.</li>
+                            </ul>
+                        </div>
+
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
                                 <span class="cv-item-title">KKN-T Universitas Duta Bangsa Surakarta (Desa Karangasem)</span>
                                 <span class="cv-item-date">Des 2025 - Jan 2026</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Divisi Publikasi, Dokumentasi & Desain</div>
+                            <div class="cv-item-subtitle-ats">Divisi Publikasi, Dokumentasi & Desain | UMKM Digitalization Project</div>
                             <ul class="cv-bullet-list">
-                                <li>Mendesain identitas visual program (logo program kerja dan banner) menggunakan Canva & Illustrator.</li>
-                                <li>Mendukung digitalisasi produk UMKM keripik singkong melalui pembuatan aset konten kreatif dan pembaruan packaging produk untuk meningkatkan nilai jual di pasar digital.</li>
+                                <li>Merancang identitas visual program (logo, banner, marketing materials) menggunakan Canva & Illustrator untuk branding yang konsisten.</li>
+                                <li>Memimpin digitalisasi produk UMKM keripik singkong: pembuatan aset konten kreatif, product photography, dan packaging design updates.</li>
+                                <li>Meningkatkan market presence melalui digital marketing assets dan product positioning yang lebih menarik di pasar online.</li>
+                                <li>Collaborative project management dengan UMKM stakeholders untuk memahami kebutuhan dan deliver tangible results.</li>
                             </ul>
                         </div>
 
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Asisten Manajemen Bisnis - Usaha Mebel Keluarga</span>
-                                <span class="cv-item-date">2023 - Sekarang</span>
+                                <span class="cv-item-title">Internship Readiness Status</span>
+                                <span class="cv-item-date">Current</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Pendampingan & Optimisasi Proses Bisnis</div>
                             <ul class="cv-bullet-list">
-                                <li>Membantu ayah mengelola operasional bisnis mebel termasuk inventory management dan customer relationship.</li>
-                                <li>Menerapkan prinsip-prinsip manajemen dan efisiensi proses untuk peningkatan produktivitas.</li>
-                                <li>Pengalaman praktis dalam menjalankan bisnis kecil dan memahami dinamika pasar lokal.</li>
+                                <li>✓ Siap untuk bekerja fulltime dengan flexible hours sesuai kebutuhan perusahaan</li>
+                                <li>✓ Memiliki portfolio 14+ projects dengan professional documentation di GitHub</li>
+                                <li>✓ Dapat dipersiapkan untuk quick ramp-up dengan provided learning resources dan mentoring</li>
+                                <li>✓ Proactive learner yang comfortable dengan self-directed learning dan problem-solving menggunakan modern tools</li>
                             </ul>
                         </div>
                     </div>
