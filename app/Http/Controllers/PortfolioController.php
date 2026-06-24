@@ -17,7 +17,25 @@ class PortfolioController extends Controller
     public function index(): View
     {
         $skills = Skill::orderBy('level', 'desc')->get()->groupBy('category');
-        $projects = Project::orderBy('featured', 'desc')->orderBy('created_at', 'desc')->get();
+        $priorityOrder = [
+            'Dashboard IoT',
+            'Portofolio Website',
+            'Website Online Laundry',
+            'Bot WhatsApp Node.js',
+            'Manajemen Data Mahasiswa',
+            'Reservasi Cafe',
+            'Pemesanan Tiket Bola',
+        ];
+
+        $projects = Project::orderBy('featured', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->sortBy(function (Project $project) use ($priorityOrder): int {
+                $position = array_search($project->title, $priorityOrder, true);
+
+                return $position === false ? count($priorityOrder) + 1 : $position;
+            })
+            ->values();
 
         return view('portfolio', compact('skills', 'projects'));
     }
