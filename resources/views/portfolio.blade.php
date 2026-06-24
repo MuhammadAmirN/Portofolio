@@ -45,14 +45,12 @@
             
             @php
                 $projectImageMap = [
-                    'Nfa Dashboard' => 'images/projects/nfa_dashboard.png',
                     'Dashboard IoT' => 'images/projects/dashboard_iot.png',
+                    'Website Online Laundry' => 'images/projects/ecommerce.png',
                     'Bot WhatsApp Node.js' => 'images/projects/bot_wa.png',
                     'Pemesanan Tiket Bola' => 'images/projects/tiket_bola.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
                     'Manajemen Data Mahasiswa' => 'images/projects/manajemen_data.png',
-                    'E-Commerce Platform' => 'images/projects/ecommerce.png',
-                    'Logistics Dashboard' => 'images/projects/logistics.png',
                     'Portfolio Website' => 'images/projects/portfolio.png',
                 ];
                 $uniqueTags = [];

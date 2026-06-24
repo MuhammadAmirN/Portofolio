@@ -121,13 +121,13 @@ class DatabaseSeeder extends Seeder
         // 3. Seed Projects
         $projectsData = [
             [
-                'title' => 'Nfa Dashboard',
-                'description' => 'Sistem dashboard monitoring untuk pengelolaan data dan visualisasi performa infrastruktur secara terpusat.',
-                'tech_stack' => ['JavaScript', 'HTML', 'CSS', 'Data Analytics'],
-                'role' => 'Frontend Developer',
-                'image_path' => 'images/projects/nfa_dashboard.png',
+                'title' => 'Website Online Laundry',
+                'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi.',
+                'tech_stack' => ['Laravel', 'MySQL', 'Bootstrap'],
+                'role' => 'Fullstack Developer',
+                'image_path' => 'images/projects/ecommerce.png',
                 'project_url' => null,
-                'github_url' => 'https://github.com/MuhammadAmirN/NFA_DASHBOARD',
+                'github_url' => 'https://github.com/MuhammadAmirN/website_online_loundry',
                 'featured' => false,
                 'contribution_percentage' => 100,
             ],
@@ -194,7 +194,7 @@ class DatabaseSeeder extends Seeder
                 'image_path' => 'images/projects/portfolio.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/Portofolio',
-                'featured' => false,
+                'featured' => true,
                 'contribution_percentage' => 100,
             ],
         ];
