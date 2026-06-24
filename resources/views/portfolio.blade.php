@@ -460,18 +460,6 @@
                         <div class="cv-section-line"></div>
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Praktik Bisnis - Usaha Mebel Keluarga</span>
-                                <span class="cv-item-date">2023 - Sekarang (Ongoing)</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Technical Assistant & Business Operations</div>
-                            <ul class="cv-bullet-list">
-                                <li>Mengelola inventory, sales tracking, dan kebutuhan operasional harian.</li>
-                                <li>Menerjemahkan kebutuhan bisnis ke solusi teknis yang praktis.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
                                 <span class="cv-item-title">KKN-T Universitas Duta Bangsa Surakarta (Desa Karangasem)</span>
                                 <span class="cv-item-date">Des 2025 - Jan 2026</span>
                             </div>
