@@ -474,10 +474,9 @@
                                 <span class="cv-item-date">Current</span>
                             </div>
                             <ul class="cv-bullet-list">
-                                <li>✓ Siap untuk bekerja fulltime dengan flexible hours sesuai kebutuhan perusahaan</li>
-                                <li>✓ Memiliki portfolio 14+ projects dengan professional documentation di GitHub</li>
-                                <li>✓ Dapat dipersiapkan untuk quick ramp-up dengan provided learning resources dan mentoring</li>
-                                <li>✓ Proactive learner yang comfortable dengan self-directed learning dan problem-solving menggunakan modern tools</li>
+                                <li>Siap untuk bekerja fulltime sesuai kebutuhan perusahaan.</li>
+                                <li>Memiliki portfolio aktif dengan dokumentasi GitHub.</li>
+                                <li>Cepat belajar dan nyaman dengan self-directed learning.</li>
                             </ul>
                         </div>
                     </div>
@@ -719,3 +718,5 @@
         }
     </script>
 @endsection
+
+
