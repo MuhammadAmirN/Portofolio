@@ -45,13 +45,15 @@
             
             @php
                 $projectImageMap = [
-                    'Dashboard IoT' => 'images/projects/dashboard_iot.png',
-                    'Website Online Laundry' => 'images/projects/ecommerce.png',
-                    'Bot WhatsApp Node.js' => 'images/projects/bot_wa.png',
-                    'Pemesanan Tiket Bola' => 'images/projects/tiket_bola.png',
+                    'Dashboard IoT' => 'images/projects/Dashboard_IoT.png',
+                    'Website Online Laundry' => 'images/projects/Loundry_mataram.png',
+                    'Bot WhatsApp Node.js' => 'images/projects/kasir_swalayan.png',
+                    'Pemesanan Tiket Bola' => 'images/projects/pemesanan-loundry_py.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
-                    'Manajemen Data Mahasiswa' => 'images/projects/manajemen_data.png',
+                    'Manajemen Data Mahasiswa' => 'images/projects/data-mhs.png',
                     'Portfolio Website' => 'images/projects/portfolio.png',
+                    'Sistem Kasir Sederhana' => 'images/projects/kasir_java.png',
+                    'Review System' => 'images/projects/penilaian-pada-e-commerce.png',
                 ];
                 $uniqueTags = [];
                 foreach($projects as $p) {
