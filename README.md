@@ -4,7 +4,7 @@
 
 ## 🎯 QUICK LINKS
 
-- **Portfolio Website:** [amir-portfolio.com](https://amir-portfolio.com)
+- **Portfolio Website:** [amirdev.me](https://amirdev.me)
 - **GitHub:** [github.com/MuhammadAmirN](https://github.com/MuhammadAmirN)
 - **LinkedIn:** [linkedin.com/in/muh-amir-n-a1a94b418/](https://linkedin.com/in/muh-amir-n-a1a94b418/)
 - **Email:** muhamir6n@gmail.com
@@ -297,14 +297,10 @@ Status:
 |------|-------|
 | **Name** | Muhammad Amir Nurudin |
 | **Email** | muhamir6n@gmail.com |
-| **Phone** | +62 821-4515-3914 |
-| **Location** | Klaten, Jawa Tengah |
+| **Location** | Indonesia |
 | **GitHub** | @MuhammadAmirN |
 | **LinkedIn** | muh-amir-n-a1a94b418 |
-| **Portfolio** | amir-portfolio.com |
-| **Status** | Semester 6 Student, Internship Ready |
-| **Major** | Teknik Informatika |
-| **University** | Universitas Duta Bangsa Surakarta |
+| **Portfolio** | amirdev.me |
 
 ---
 

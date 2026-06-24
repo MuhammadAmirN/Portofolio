@@ -44,6 +44,17 @@
             </div>
             
             @php
+                $projectImageMap = [
+                    'Nfa Dashboard' => 'images/projects/nfa_dashboard.png',
+                    'Dashboard IoT' => 'images/projects/dashboard_iot.png',
+                    'Bot WhatsApp Node.js' => 'images/projects/bot_wa.png',
+                    'Pemesanan Tiket Bola' => 'images/projects/tiket_bola.png',
+                    'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
+                    'Manajemen Data Mahasiswa' => 'images/projects/manajemen_data.png',
+                    'E-Commerce Platform' => 'images/projects/ecommerce.png',
+                    'Logistics Dashboard' => 'images/projects/logistics.png',
+                    'Portfolio Website' => 'images/projects/portfolio.png',
+                ];
                 $uniqueTags = [];
                 foreach($projects as $p) {
                     if ($p->tech_stack && is_array($p->tech_stack)) {
@@ -71,11 +82,14 @@
                             @endif
                             
                             <div class="project-img-wrapper">
-                                @if($project->image_path)
+                                @php
+                                    $resolvedImagePath = $project->image_path ?: ($projectImageMap[$project->title] ?? null);
+                                @endphp
+                                @if($resolvedImagePath)
                                     @php
-                                        $imageSrc = str_starts_with($project->image_path, 'images/') 
-                                            ? asset($project->image_path) 
-                                            : asset('storage/' . $project->image_path);
+                                        $imageSrc = str_starts_with($resolvedImagePath, 'images/')
+                                            ? asset($resolvedImagePath)
+                                            : asset('storage/' . $resolvedImagePath);
                                     @endphp
                                     <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
                                 @else
@@ -327,7 +341,7 @@
                         <div class="cv-contact-links">
                             <span>linkedin.com/in/muh-amir-n-a1a94b418/</span> |
                             <span>github.com/MuhammadAmirN</span> |
-                            <span>Portfolio: amir-portfolio.com</span>
+                            <span>Portfolio: amirdev.me</span>
                         </div>
                     </div>
                     
@@ -336,7 +350,7 @@
                         <h2 class="cv-section-title-ats">PROFIL</h2>
                         <div class="cv-section-line"></div>
                         <p class="cv-text">
-                            Mahasiswa Teknik Informatika Semester 6 di Universitas Duta Bangsa Surakarta dengan passion dalam fullstack web development, IoT systems, dan AI-assisted development. Berpengalaman membangun aplikasi web production-ready menggunakan Laravel, Python, Java, dan Node.js. Terbukti dapat merancang sistem kompleks dari database design hingga user interface. Aktif mencari kesempatan magang (internship) untuk mengaplikasikan technical skills dan berkontribusi pada proyek real-world. Familiar dengan modern development tools dan best practices, serta passionate dalam continuous learning dan problem-solving.
+                            Mahasiswa Teknik Informatika Semester 6 di Universitas Duta Bangsa Surakarta yang fokus pada fullstack web development, IoT, dan pengembangan berbasis AI tools. Berpengalaman membangun aplikasi dengan Laravel, Python, Java, dan Node.js dari desain database sampai antarmuka. Siap berkontribusi pada proyek internship maupun junior developer dengan pendekatan yang rapi, cepat belajar, dan berorientasi hasil.
                         </p>
                     </div>
                     
@@ -359,12 +373,12 @@
                         <h2 class="cv-section-title-ats">KEAHLIAN TEKNIS</h2>
                         <div class="cv-section-line"></div>
                         <div class="cv-skills-grid">
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Frontend Development:</strong> HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, Blade Templating, Responsive Design</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Backend Development:</strong> PHP (Laravel), Python (Flask, Streamlit), Node.js (Express), Java</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Database & ORM:</strong> MySQL, SQLite, Query Optimization, Database Design, Normalization</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>IoT & Hardware:</strong> ESP32, Arduino, IoT Sensors, Actuators, Hardware Integration, Wokwi Simulator</p>
-                            <p class="cv-text" style="margin-bottom: 0.3rem;"><strong>Development Tools:</strong> Git, GitHub, RESTful API, CRUD Operations, Version Control</p>
-                            <p class="cv-text" style="margin-bottom: 0;"><strong>Methodologies:</strong> Agile Development, MVC Architecture, OOP Principles, AI-Assisted Development (Claude, GitHub Copilot)</p>
+                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap, Tailwind, Blade, responsive UI</p>
+                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Backend:</strong> PHP/Laravel, Python/Flask, Node.js/Express, Java</p>
+                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Database:</strong> MySQL, SQLite, query design, normalization, CRUD</p>
+                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>IoT:</strong> ESP32, Arduino, sensor integration, Wokwi, dashboard monitoring</p>
+                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Tools:</strong> Git, GitHub, REST API, deployment, debugging</p>
+                            <p class="cv-text" style="margin-bottom: 0;"><strong>Workflow:</strong> MVC, OOP, agile habits, AI-assisted development</p>
                         </div>
                     </div>
                     
@@ -375,77 +389,69 @@
                         
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Dashboard IoT - Bandul Matematis (Web & Hardware Integration)</span>
+                                <span class="cv-item-title">Dashboard IoT - Bandul Matematis</span>
                                 <span class="cv-item-date">2026</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Fullstack Developer & IoT Engineer | Github: github.com/MuhammadAmirN/Dashboard_IoT</div>
+                            <div class="cv-item-subtitle-ats">Fullstack Developer & IoT Engineer | github.com/MuhammadAmirN/Dashboard_IoT</div>
                             <ul class="cv-bullet-list">
-                                <li>Membangun aplikasi web IoT lengkap untuk monitoring praktikum fisika bandul matematis secara real-time.</li>
-                                <li>Mengintegrasikan logika backend Laravel dengan database MySQL untuk menyimpan data telemetri bandul.</li>
-                                <li>Mengimplementasikan dashboard interaktif dengan grafik visualisasi data sensor untuk mempermudah analisis.</li>
-                                <li>Melakukan deployment dan konfigurasi hosting penuh agar aplikasi dapat diakses secara publik.</li>
+                                <li>Membangun dashboard monitoring real-time untuk praktikum fisika berbasis Laravel dan MySQL.</li>
+                                <li>Mengintegrasikan visualisasi data sensor dan deployment publik untuk akses mudah.</li>
                             </ul>
                         </div>
                         
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Laundry Mataram (Full Stack Web Application)</span>
+                                <span class="cv-item-title">Sistem Laundry Mataram</span>
                                 <span class="cv-item-date">2025</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Full Stack Developer | Github: github.com/MuhammadAmirN/loundry_mataram-laravel</div>
+                            <div class="cv-item-subtitle-ats">Full Stack Developer | github.com/MuhammadAmirN/loundry_mataram-laravel</div>
                             <ul class="cv-bullet-list">
-                                <li>Merancang dan mengimplementasikan sistem manajemen laundry lengkap dengan fitur CRUD (Create, Read, Update, Delete).</li>
-                                <li>Mengintegrasikan role-based access control untuk berbagai tingkatan pengguna (admin, staff, customer).</li>
-                                <li>Membangun modul laporan keuangan yang komprehensif dengan visualisasi data untuk analisis bisnis.</li>
-                                <li>Menggunakan Laravel framework dengan MySQL database untuk performa dan skalabilitas optimal.</li>
+                                <li>Mengembangkan sistem manajemen laundry dengan fitur CRUD dan role-based access.</li>
+                                <li>Menyusun modul laporan dan alur transaksi menggunakan Laravel serta MySQL.</li>
                             </ul>
                         </div>
 
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Bot WhatsApp Node.js (Automation System)</span>
+                                <span class="cv-item-title">Bot WhatsApp Node.js</span>
                                 <span class="cv-item-date">2025</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Backend Developer | Github: github.com/MuhammadAmirN/botWA</div>
+                            <div class="cv-item-subtitle-ats">Backend Developer | github.com/MuhammadAmirN/botWA</div>
                             <ul class="cv-bullet-list">
-                                <li>Merancang dan membangun bot WhatsApp otomatis berbasis Node.js untuk menangani respon pesan interaktif.</li>
-                                <li>Mengintegrasikan WhatsApp API untuk otomasi alur percakapan dengan performa tinggi.</li>
-                                <li>Implementasi message handling, command routing, dan database integration untuk persistence data.</li>
+                                <li>Membuat bot WhatsApp otomatis berbasis Node.js untuk respon interaktif.</li>
+                                <li>Menghubungkan command routing, message handling, dan integrasi data.</li>
                             </ul>
                         </div>
 
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Pemesanan Laundry (Python Backend)</span>
+                                <span class="cv-item-title">Sistem Pemesanan Laundry</span>
                                 <span class="cv-item-date">2024</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Backend Developer | Github: github.com/MuhammadAmirN/pemesanan-loundry</div>
+                            <div class="cv-item-subtitle-ats">Backend Developer | github.com/MuhammadAmirN/pemesanan-loundry</div>
                             <ul class="cv-bullet-list">
-                                <li>Membangun sistem pemesanan laundry berbasis Python dengan OOP principles yang solid.</li>
-                                <li>Implementasi database design untuk mengelola customers, bookings, payments, dan evaluations.</li>
-                                <li>Mengintegrasikan evaluasi komprehensif untuk quality, price, time delivery, dan payment methods.</li>
+                                <li>Membangun sistem pemesanan berbasis Python dengan desain OOP.</li>
+                                <li>Mengelola data customer, booking, payment, dan evaluasi layanan.</li>
                             </ul>
                         </div>
 
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Kasir Sederhana (Java Desktop Application)</span>
+                                <span class="cv-item-title">Sistem Kasir Sederhana</span>
                                 <span class="cv-item-date">2024</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Fullstack Developer | Github: github.com/MuhammadAmirN/kasir-sederhana</div>
+                            <div class="cv-item-subtitle-ats">Fullstack Developer | github.com/MuhammadAmirN/kasir-sederhana</div>
                             <ul class="cv-bullet-list">
-                                <li>Mengembangkan Point of Sale (POS) system berbasis Java dengan GUI menggunakan Swing/JavaFX.</li>
-                                <li>Implementasi inventory management, transaction logging, dan financial reports generation.</li>
-                                <li>Database integration dengan proper schema design untuk product, transaction, dan customer data.</li>
+                                <li>Mengembangkan aplikasi POS desktop berbasis Java dengan GUI.</li>
+                                <li>Mengintegrasikan inventory, transaksi, dan laporan harian.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Projek Tambahan Section -->
                     <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PROJEK TAMBAHAN</h2>
+                        <h2 class="cv-section-title-ats">RINGKASAN PORTOFOLIO</h2>
                         <div class="cv-section-line"></div>
-                        <p class="cv-text" style="margin-bottom: 0.5rem;">Portfolio mencakup 14+ projects dengan diverse tech stack: <strong>Laravel e-commerce platforms, Python Flask web applications, Management systems (student data, cafe reservations), JavaScript/HTML5 landing pages, dan IoT monitoring dashboards.</strong> Semua projects tersedia di GitHub dengan documentation lengkap.</p>
+                        <p class="cv-text" style="margin-bottom: 0;">Portfolio berisi lebih dari 14 project aktif di GitHub, mencakup web app Laravel, Python API, sistem reservasi, landing page, dan IoT dashboard. Detail project lain tersedia di <strong>amirdev.me</strong>.</p>
                     </div>
 
                     <!-- Pengalaman & Kontribusi Section -->
@@ -459,10 +465,8 @@
                             </div>
                             <div class="cv-item-subtitle-ats">Technical Assistant & Business Operations</div>
                             <ul class="cv-bullet-list">
-                                <li>Membantu mengelola operasional bisnis mebel termasuk inventory management, sales tracking, dan customer relationship management.</li>
-                                <li>Menganalisis dan menerapkan process optimization untuk meningkatkan efisiensi dan produktivitas bisnis.</li>
-                                <li>Practical experience dalam memahami business requirements dan menerjemahkannya ke technical solutions.</li>
-                                <li>Hands-on experience dalam real-world business challenges dan problem-solving approaches.</li>
+                                <li>Mengelola inventory, sales tracking, dan kebutuhan operasional harian.</li>
+                                <li>Menerjemahkan kebutuhan bisnis ke solusi teknis yang praktis.</li>
                             </ul>
                         </div>
 
@@ -473,10 +477,8 @@
                             </div>
                             <div class="cv-item-subtitle-ats">Divisi Publikasi, Dokumentasi & Desain | UMKM Digitalization Project</div>
                             <ul class="cv-bullet-list">
-                                <li>Merancang identitas visual program (logo, banner, marketing materials) menggunakan Canva & Illustrator untuk branding yang konsisten.</li>
-                                <li>Memimpin digitalisasi produk UMKM keripik singkong: pembuatan aset konten kreatif, product photography, dan packaging design updates.</li>
-                                <li>Meningkatkan market presence melalui digital marketing assets dan product positioning yang lebih menarik di pasar online.</li>
-                                <li>Collaborative project management dengan UMKM stakeholders untuk memahami kebutuhan dan deliver tangible results.</li>
+                                <li>Merancang materi promosi dan identitas visual program.</li>
+                                <li>Mendukung digitalisasi UMKM melalui aset konten dan dokumentasi.</li>
                             </ul>
                         </div>
 
@@ -662,6 +664,10 @@
         }
 
         @media print {
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
             body * { visibility: hidden; }
             #cvPreviewModal, .cv-modal-content, .cv-paper, .cv-paper * { visibility: visible; }
             .cv-modal {
@@ -688,6 +694,10 @@
                 padding: 0px !important;
                 margin: 0 !important;
                 width: 100% !important;
+                transform: scale(0.82);
+                transform-origin: top left;
+                width: 122% !important;
+                border-radius: 0 !important;
             }
             .cv-close-btn, button, .btn {
                 display: none !important;
