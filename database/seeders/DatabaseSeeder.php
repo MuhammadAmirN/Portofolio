@@ -197,6 +197,28 @@ class DatabaseSeeder extends Seeder
                 'featured' => true,
                 'contribution_percentage' => 100,
             ],
+            [
+                'title' => 'Sistem Kasir Sederhana',
+                'description' => 'Aplikasi desktop Java untuk transaksi kasir, inventory, dan laporan penjualan.',
+                'tech_stack' => ['Java', 'Swing', 'MySQL'],
+                'role' => 'Fullstack Developer',
+                'image_path' => 'images/projects/logistics.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/kasir-sederhana',
+                'featured' => false,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'Review System',
+                'description' => 'Sistem penilaian dan review berbasis Java dengan GUI untuk input rating dan ulasan pengguna.',
+                'tech_stack' => ['Java', 'Swing', 'Database'],
+                'role' => 'Java Developer',
+                'image_path' => 'images/projects/nfa_dashboard.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/membuat-penilaian-review',
+                'featured' => false,
+                'contribution_percentage' => 100,
+            ],
         ];
 
         foreach ($projectsData as $project) {

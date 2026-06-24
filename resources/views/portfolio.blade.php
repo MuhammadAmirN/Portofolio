@@ -75,10 +75,6 @@
                 @foreach($projects as $project)
                     <div class="project-card-wrapper" data-categories="{{ implode(',', $project->tech_stack ?: []) }}">
                         <article class="project-card glass-card @if($project->featured) featured-card @endif">
-                            @if($project->featured)
-                                <span class="project-featured-tag">Utama</span>
-                            @endif
-                            
                             <div class="project-img-wrapper">
                                 @php
                                     $resolvedImagePath = $project->image_path ?: ($projectImageMap[$project->title] ?? null);
