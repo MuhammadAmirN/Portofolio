@@ -24,7 +24,7 @@
                 <div class="hero-avatar-card glass-card">
                     <img src="{{ asset('images/avatar.jpg') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
                     <h3 class="hero-avatar-name">Amir Nurudin</h3>
-                    <p class="hero-avatar-title">Fullstack Developer • AI Power-User</p>
+                    <p class="hero-avatar-title">Fullstack Developer • Front End Focus</p>
                     <div class="hero-socials">
                         <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
