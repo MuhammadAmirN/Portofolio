@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 // Public Routes
 Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
-Route::get('/projects/{project:slug}', [PortfolioController::class, 'showProject'])->name('portfolio.projects.show');
 Route::post('/contact', [PortfolioController::class, 'storeContact'])->name('portfolio.contact');
 
 // Authentication Routes

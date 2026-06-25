@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Skill;
-use App\Models\Project;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -157,13 +156,6 @@ class PortfolioController extends Controller
         })->values();
 
         return view('portfolio', compact('skills', 'projects'));
-    }
-
-    public function showProject(Project $project): View
-    {
-        $project->loadMissing();
-
-        return view('portfolio-project', compact('project'));
     }
 
     public function storeContact(Request $request): RedirectResponse
