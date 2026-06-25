@@ -48,7 +48,7 @@
                     'Dashboard IoT' => 'images/projects/Dashboard_IoT.png',
                     'Website Laundry Mataram' => 'images/projects/Loundry_mataram.png',
                     'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
-                    'Pemesanan Tiket Bola' => 'images/projects/pemesanan-loundry_py.png',
+                    'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
                     'Pemesanan Laundry' => 'images/projects/pemesanan-loundry_py.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
                     'Manajemen Data Mahasiswa' => 'images/projects/data-mhs.png',

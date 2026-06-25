@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Aplikasi berbasis web untuk manajemen pemesanan tiket pertandingan sepak bola dengan sistem verifikasi pembayaran.',
                 'tech_stack' => ['Python', 'Streamlit', 'Data Processing'],
                 'role' => 'Python Developer',
-                'image_path' => 'images/projects/pemesanan-loundry_py.png',
+                'image_path' => 'images/projects/pemesanan_tiket_bola.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/PEMESANAN_TIKET_BOLA',
                 'featured' => false,
