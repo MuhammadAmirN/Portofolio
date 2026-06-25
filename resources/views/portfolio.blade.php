@@ -88,11 +88,11 @@
                                             ? asset($resolvedImagePath)
                                             : asset('storage/' . $resolvedImagePath);
                                     @endphp
-                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat detail {{ $project->title }}">
+                                    <a href="{{ $project->github_url ?: route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat source code {{ $project->title }}">
                                         <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
                                     </a>
                                 @else
-                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat detail {{ $project->title }}">
+                                    <a href="{{ $project->github_url ?: route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat source code {{ $project->title }}">
                                         <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
                                             <i class="fa-solid fa-image fa-3x"></i>
                                         </div>
@@ -103,7 +103,7 @@
                             <div class="project-content">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                                     <h3 class="project-title" style="margin-bottom: 0;">
-                                        <a href="{{ route('portfolio.projects.show', $project->slug) }}" style="color: inherit; text-decoration: none;">
+                                        <a href="{{ $project->github_url ?: route('portfolio.projects.show', $project->slug) }}" style="color: inherit; text-decoration: none;">
                                             {{ $project->title }}
                                         </a>
                                     </h3>
@@ -123,9 +123,6 @@
                                 </div>
                                 
                                 <div class="project-links">
-                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-link">
-                                        <i class="fa-solid fa-folder-open"></i> Detail Project
-                                    </a>
                                     @if($project->project_url)
                                         <a href="{{ $project->project_url }}" target="_blank" class="project-link">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
@@ -133,7 +130,7 @@
                                     @endif
                                     @if($project->github_url)
                                         <a href="{{ $project->github_url }}" target="_blank" class="project-link">
-                                            <i class="fa-brands fa-github"></i> Kode Sumber
+                                            <i class="fa-brands fa-github"></i> Source Code
                                         </a>
                                     @endif
                                 </div>
