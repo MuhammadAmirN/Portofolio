@@ -125,11 +125,51 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        $legacyProjectUpdates = [
+            [
+                'match' => ['title' => 'Website Online Laundry'],
+                'data' => [
+                    'title' => 'Website Laundry Mataram',
+                    'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi di Mataram.',
+                    'tech_stack' => ['Laravel', 'MySQL', 'Bootstrap'],
+                    'role' => 'Fullstack Developer',
+                    'image_path' => 'images/projects/Loundry_mataram.png',
+                    'project_url' => null,
+                    'github_url' => 'https://github.com/MuhammadAmirN/website_online_loundry',
+                    'featured' => false,
+                    'contribution_percentage' => 100,
+                    'slug' => Str::slug('Website Laundry Mataram') . '-' . rand(1000, 9999),
+                ],
+            ],
+            [
+                'match' => ['title' => 'Bot WhatsApp Node.js'],
+                'data' => [
+                    'title' => 'Enkripsi Data',
+                    'description' => 'Aplikasi edukasi dan simulasi enkripsi data untuk melindungi informasi menggunakan algoritma kriptografi.',
+                    'tech_stack' => ['Java', 'Cryptography', 'Security'],
+                    'role' => 'Java Developer',
+                    'image_path' => 'images/projects/membuat-enkripsi-data.png',
+                    'project_url' => null,
+                    'github_url' => 'https://github.com/MuhammadAmirN/membuat-enkripsi-data',
+                    'featured' => true,
+                    'contribution_percentage' => 100,
+                    'slug' => Str::slug('Enkripsi Data') . '-' . rand(1000, 9999),
+                ],
+            ],
+        ];
+
+        foreach ($legacyProjectUpdates as $legacyUpdate) {
+            Project::updateOrCreate(
+                $legacyUpdate['match'],
+                $legacyUpdate['data']
+            );
+        }
+
         // 3. Seed Projects
         $projectsData = [
             [
-                'title' => 'Website Online Laundry',
-                'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi.',
+                'title' => 'Website Laundry Mataram',
+                'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi di Mataram.',
                 'tech_stack' => ['Laravel', 'MySQL', 'Bootstrap'],
                 'role' => 'Fullstack Developer',
                 'image_path' => 'images/projects/Loundry_mataram.png',
@@ -150,13 +190,13 @@ class DatabaseSeeder extends Seeder
                 'contribution_percentage' => 100,
             ],
             [
-                'title' => 'Bot WhatsApp Node.js',
-                'description' => 'Sistem bot WhatsApp otomatis dan interaktif yang dibangun menggunakan ekosistem Node.js.',
-                'tech_stack' => ['JavaScript', 'Node.js', 'WhatsApp API'],
-                'role' => 'Backend Developer',
-                'image_path' => 'images/projects/kasir_swalayan.png',
+                'title' => 'Enkripsi Data',
+                'description' => 'Aplikasi edukasi dan simulasi enkripsi data untuk melindungi informasi menggunakan algoritma kriptografi.',
+                'tech_stack' => ['Java', 'Cryptography', 'Security'],
+                'role' => 'Java Developer',
+                'image_path' => 'images/projects/membuat-enkripsi-data.png',
                 'project_url' => null,
-                'github_url' => 'https://github.com/MuhammadAmirN/botWA',
+                'github_url' => 'https://github.com/MuhammadAmirN/membuat-enkripsi-data',
                 'featured' => true,
                 'contribution_percentage' => 100,
             ],
@@ -169,6 +209,28 @@ class DatabaseSeeder extends Seeder
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/PEMESANAN_TIKET_BOLA',
                 'featured' => false,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'Pemesanan Laundry',
+                'description' => 'Sistem pemesanan laundry berbasis Python untuk pencatatan order, layanan, dan status pengerjaan.',
+                'tech_stack' => ['Python', 'OOP', 'Desktop App'],
+                'role' => 'Python Developer',
+                'image_path' => 'images/projects/pemesanan-loundry_py.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/pemesanan-loundry',
+                'featured' => false,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'Sistem Laundry Mataram',
+                'description' => 'Sistem manajemen laundry lengkap dengan fitur CRUD, role-based access control, dan laporan keuangan.',
+                'tech_stack' => ['Laravel', 'MySQL', 'Bootstrap', 'PHP'],
+                'role' => 'Fullstack Developer',
+                'image_path' => 'images/projects/Loundry_mataram.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/loundry_mataram-laravel',
+                'featured' => true,
                 'contribution_percentage' => 100,
             ],
             [
@@ -223,6 +285,17 @@ class DatabaseSeeder extends Seeder
                 'image_path' => 'images/projects/penilaian-pada-e-commerce.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/membuat-penilaian-review',
+                'featured' => false,
+                'contribution_percentage' => 100,
+            ],
+            [
+                'title' => 'Landing Page Portofolio',
+                'description' => 'Landing page personal untuk menampilkan profil, skill, dan akses cepat ke project utama.',
+                'tech_stack' => ['Laravel', 'Blade', 'CSS'],
+                'role' => 'Frontend Developer',
+                'image_path' => 'images/projects/portfolio.png',
+                'project_url' => null,
+                'github_url' => 'https://github.com/MuhammadAmirN/Portofolio',
                 'featured' => false,
                 'contribution_percentage' => 100,
             ],

@@ -20,11 +20,14 @@ class PortfolioController extends Controller
         $priorityOrder = [
             'Dashboard IoT',
             'Portofolio Website',
-            'Website Online Laundry',
-            'Bot WhatsApp Node.js',
+            'Website Laundry Mataram',
+            'Enkripsi Data',
             'Manajemen Data Mahasiswa',
             'Reservasi Cafe',
             'Pemesanan Tiket Bola',
+            'Pemesanan Laundry',
+            'Sistem Laundry Mataram',
+            'Landing Page Portofolio',
         ];
 
         $projects = Project::orderBy('featured', 'desc')
@@ -38,6 +41,13 @@ class PortfolioController extends Controller
             ->values();
 
         return view('portfolio', compact('skills', 'projects'));
+    }
+
+    public function showProject(Project $project): View
+    {
+        $project->loadMissing();
+
+        return view('portfolio-project', compact('project'));
     }
 
     public function storeContact(Request $request): RedirectResponse

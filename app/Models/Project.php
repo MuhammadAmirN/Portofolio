@@ -16,6 +16,7 @@ final class Project extends Model
         'slug',
         'description',
         'tech_stack',
+        'role',
         'image_path',
         'project_url',
         'github_url',

@@ -46,9 +46,10 @@
             @php
                 $projectImageMap = [
                     'Dashboard IoT' => 'images/projects/Dashboard_IoT.png',
-                    'Website Online Laundry' => 'images/projects/Loundry_mataram.png',
-                    'Bot WhatsApp Node.js' => 'images/projects/kasir_swalayan.png',
+                    'Website Laundry Mataram' => 'images/projects/Loundry_mataram.png',
+                    'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan-loundry_py.png',
+                    'Pemesanan Laundry' => 'images/projects/pemesanan-loundry_py.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
                     'Manajemen Data Mahasiswa' => 'images/projects/data-mhs.png',
                     'Portfolio Website' => 'images/projects/portfolio.png',
@@ -87,17 +88,25 @@
                                             ? asset($resolvedImagePath)
                                             : asset('storage/' . $resolvedImagePath);
                                     @endphp
-                                    <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
+                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat detail {{ $project->title }}">
+                                        <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
+                                    </a>
                                 @else
-                                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
-                                        <i class="fa-solid fa-image fa-3x"></i>
-                                    </div>
+                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-card-media-link" aria-label="Lihat detail {{ $project->title }}">
+                                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
+                                            <i class="fa-solid fa-image fa-3x"></i>
+                                        </div>
+                                    </a>
                                 @endif
                             </div>
                             
                             <div class="project-content">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                                    <h3 class="project-title" style="margin-bottom: 0;">{{ $project->title }}</h3>
+                                    <h3 class="project-title" style="margin-bottom: 0;">
+                                        <a href="{{ route('portfolio.projects.show', $project->slug) }}" style="color: inherit; text-decoration: none;">
+                                            {{ $project->title }}
+                                        </a>
+                                    </h3>
                                     <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); font-weight: bold;">
                                         Peran: {{ $project->role ?? 'Fullstack' }}
                                     </span>
@@ -114,6 +123,9 @@
                                 </div>
                                 
                                 <div class="project-links">
+                                    <a href="{{ route('portfolio.projects.show', $project->slug) }}" class="project-link">
+                                        <i class="fa-solid fa-folder-open"></i> Detail Project
+                                    </a>
                                     @if($project->project_url)
                                         <a href="{{ $project->project_url }}" target="_blank" class="project-link">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
@@ -397,10 +409,10 @@
                         
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Laundry Mataram</span>
+                                <span class="cv-item-title">Website Laundry Mataram</span>
                                 <span class="cv-item-date">2025</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Full Stack Developer | github.com/MuhammadAmirN/loundry_mataram-laravel</div>
+                            <div class="cv-item-subtitle-ats">Full Stack Developer | github.com/MuhammadAmirN/website_online_loundry</div>
                             <ul class="cv-bullet-list">
                                 <li>Mengembangkan sistem manajemen laundry dengan fitur CRUD dan role-based access.</li>
                                 <li>Menyusun modul laporan dan alur transaksi menggunakan Laravel serta MySQL.</li>
@@ -409,13 +421,13 @@
 
                         <div class="cv-item-ats">
                             <div class="cv-item-header">
-                                <span class="cv-item-title">Bot WhatsApp Node.js</span>
+                                <span class="cv-item-title">Enkripsi Data</span>
                                 <span class="cv-item-date">2025</span>
                             </div>
-                            <div class="cv-item-subtitle-ats">Backend Developer | github.com/MuhammadAmirN/botWA</div>
+                            <div class="cv-item-subtitle-ats">Java Developer | github.com/MuhammadAmirN/membuat-enkripsi-data</div>
                             <ul class="cv-bullet-list">
-                                <li>Membuat bot WhatsApp otomatis berbasis Node.js untuk respon interaktif.</li>
-                                <li>Menghubungkan command routing, message handling, dan integrasi data.</li>
+                                <li>Membangun aplikasi simulasi enkripsi data untuk menjaga kerahasiaan informasi.</li>
+                                <li>Menerapkan konsep kriptografi dasar untuk proses proteksi data.</li>
                             </ul>
                         </div>
 
@@ -428,6 +440,18 @@
                             <ul class="cv-bullet-list">
                                 <li>Membangun sistem pemesanan berbasis Python dengan desain OOP.</li>
                                 <li>Mengelola data customer, booking, payment, dan evaluasi layanan.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-item-ats">
+                            <div class="cv-item-header">
+                                <span class="cv-item-title">Pemesanan Laundry</span>
+                                <span class="cv-item-date">2024</span>
+                            </div>
+                            <div class="cv-item-subtitle-ats">Python Developer | github.com/MuhammadAmirN/pemesanan-loundry</div>
+                            <ul class="cv-bullet-list">
+                                <li>Mengembangkan aplikasi pemesanan laundry berbasis Python.</li>
+                                <li>Mengelola data order, layanan, dan status pengerjaan pelanggan.</li>
                             </ul>
                         </div>
 
@@ -447,7 +471,7 @@
                     <div class="cv-section">
                         <h2 class="cv-section-title-ats">RINGKASAN PORTOFOLIO</h2>
                         <div class="cv-section-line"></div>
-                        <p class="cv-text" style="margin-bottom: 0;">Portfolio berisi lebih dari 14 project aktif di GitHub, mencakup web app Laravel, Python API, sistem reservasi, landing page, dan IoT dashboard. Detail project lain tersedia di <strong>amirdev.me</strong>.</p>
+                        <p class="cv-text" style="margin-bottom: 0;">Portfolio berisi 12 project aktif di GitHub, mencakup web app Laravel, Python API, sistem reservasi, landing page, dan IoT dashboard. Detail project lain tersedia di <strong>amirdev.me</strong>.</p>
                     </div>
 
                     <!-- Pengalaman & Kontribusi Section -->
@@ -716,5 +740,3 @@
         }
     </script>
 @endsection
-
-
