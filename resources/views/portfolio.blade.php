@@ -58,8 +58,9 @@
                 ];
                 $uniqueTags = [];
                 foreach($projects as $p) {
-                    if ($p->tech_stack && is_array($p->tech_stack)) {
-                        foreach($p->tech_stack as $t) {
+                    $techStack = data_get($p, 'tech_stack', []);
+                    if (is_array($techStack)) {
+                        foreach($techStack as $t) {
                             $uniqueTags[] = trim($t);
                         }
                     }
@@ -76,23 +77,31 @@
             
             <div class="projects-grid">
                 @foreach($projects as $project)
-                    <div class="project-card-wrapper" data-categories="{{ implode(',', $project->tech_stack ?: []) }}">
-                        <article class="project-card glass-card @if($project->featured) featured-card @endif">
+                    @php
+                        $projectTitle = data_get($project, 'title');
+                        $projectTechStack = data_get($project, 'tech_stack', []);
+                        $projectImagePath = data_get($project, 'image_path');
+                        $projectGithubUrl = data_get($project, 'github_url');
+                        $projectProjectUrl = data_get($project, 'project_url');
+                        $projectDescription = data_get($project, 'description');
+                        $projectRole = data_get($project, 'role');
+                        $projectFeatured = (bool) data_get($project, 'featured', false);
+                        $resolvedImagePath = $projectImagePath ?: ($projectImageMap[$projectTitle] ?? null);
+                    @endphp
+                    <div class="project-card-wrapper" data-categories="{{ implode(',', $projectTechStack ?: []) }}">
+                        <article class="project-card glass-card @if($projectFeatured) featured-card @endif">
                             <div class="project-img-wrapper">
-                                @php
-                                    $resolvedImagePath = $project->image_path ?: ($projectImageMap[$project->title] ?? null);
-                                @endphp
                                 @if($resolvedImagePath)
                                     @php
                                         $imageSrc = str_starts_with($resolvedImagePath, 'images/')
                                             ? asset($resolvedImagePath)
                                             : asset('storage/' . $resolvedImagePath);
                                     @endphp
-                                    <a href="{{ $project->github_url }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $project->title }}">
-                                        <img src="{{ $imageSrc }}" alt="{{ $project->title }}" class="project-img" loading="lazy">
+                                    <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $projectTitle }}">
+                                        <img src="{{ $imageSrc }}" alt="{{ $projectTitle }}" class="project-img" loading="lazy">
                                     </a>
                                 @else
-                                    <a href="{{ $project->github_url }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $project->title }}">
+                                    <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $projectTitle }}">
                                         <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
                                             <i class="fa-solid fa-image fa-3x"></i>
                                         </div>
@@ -103,33 +112,33 @@
                             <div class="project-content">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                                     <h3 class="project-title" style="margin-bottom: 0;">
-                                        <a href="{{ $project->github_url }}" target="_blank" rel="noreferrer" style="color: inherit; text-decoration: none;">
-                                            {{ $project->title }}
+                                        <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" style="color: inherit; text-decoration: none;">
+                                            {{ $projectTitle }}
                                         </a>
                                     </h3>
                                     <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); font-weight: bold;">
-                                        Peran: {{ $project->role ?? 'Fullstack' }}
+                                        Peran: {{ $projectRole ?? 'Fullstack' }}
                                     </span>
                                 </div>
                                 
                                 <div class="project-desc-box" style="margin: 1rem 0; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 8px; font-size: 0.95rem; color: #d1d5db;">
-                                    <p style="margin-bottom: 0;"><strong>Deskripsi:</strong> {{ $project->description }}</p>
+                                    <p style="margin-bottom: 0;"><strong>Deskripsi:</strong> {{ $projectDescription }}</p>
                                 </div>
                                 
                                 <div class="project-tags">
-                                    @foreach($project->tech_stack ?: [] as $tech)
+                                    @foreach($projectTechStack ?: [] as $tech)
                                         <span class="project-tag">{{ $tech }}</span>
                                     @endforeach
                                 </div>
                                 
                                 <div class="project-links">
-                                    @if($project->project_url)
-                                        <a href="{{ $project->project_url }}" target="_blank" class="project-link">
+                                    @if($projectProjectUrl)
+                                        <a href="{{ $projectProjectUrl }}" target="_blank" rel="noreferrer" class="project-link">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
                                         </a>
                                     @endif
-                                    @if($project->github_url)
-                                        <a href="{{ $project->github_url }}" target="_blank" rel="noreferrer" class="project-link">
+                                    @if($projectGithubUrl)
+                                        <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-link">
                                             <i class="fa-brands fa-github"></i> Source Code
                                         </a>
                                     @endif
