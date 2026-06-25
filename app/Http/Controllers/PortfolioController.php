@@ -152,30 +152,9 @@ class PortfolioController extends Controller
             ],
         ]);
 
-        $priorityOrder = $canonicalProjects->pluck('title')->all();
-
-        $projects = Project::orderBy('featured', 'desc')
-            ->orderBy('created_at', 'desc')
-            ->get()
-            ->map(function (Project $project) use ($canonicalProjects): object {
-                $canonical = $canonicalProjects->firstWhere('title', $project->title);
-
-                if ($canonical) {
-                    return (object) array_merge($canonical, $project->toArray(), [
-                        'image_path' => $canonical['image_path'] ?? $project->image_path,
-                    ]);
-                }
-
-                return (object) $project->toArray();
-            })
-            ->sortBy(function (object $project) use ($priorityOrder): int {
-                $position = array_search($project->title, $priorityOrder, true);
-
-                return $position === false ? count($priorityOrder) + 1 : $position;
-            })
-            ->values();
-
-        $projects = $projects->count() >= 12 ? $projects : $canonicalProjects;
+        $projects = $canonicalProjects->map(function (array $project): object {
+            return (object) $project;
+        })->values();
 
         return view('portfolio', compact('skills', 'projects'));
     }
