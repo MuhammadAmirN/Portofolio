@@ -36,11 +36,11 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Membangun antarmuka yang adaptif untuk berbagai ukuran layar menggunakan CSS modern dan framework seperti Tailwind/Bootstrap.',
             ],
             [
-                'name' => 'JavaScript (DOM & Node.js)',
+                'name' => 'JavaScript & DOM',
                 'category' => 'Frontend Development',
                 'level' => 90,
                 'icon' => 'fa-brands fa-js',
-                'description' => 'Membuat elemen interaktif, manipulasi DOM murni, integrasi API, serta pengembangan Bot WhatsApp menggunakan Node.js.',
+                'description' => 'Membuat elemen interaktif, manipulasi DOM, integrasi API, dan pengalaman pengguna dinamis di aplikasi web.',
             ],
             [
                 'name' => 'UI/UX Implementation',
@@ -48,6 +48,13 @@ class DatabaseSeeder extends Seeder
                 'level' => 88,
                 'icon' => 'fa-solid fa-palette',
                 'description' => 'Menerjemahkan desain visual menjadi kode frontend yang presisi, responsif, fungsional, dan memiliki estetika Glassmorphism/Dark Mode.',
+            ],
+            [
+                'name' => 'Bootstrap & CSS',
+                'category' => 'Frontend Development',
+                'level' => 82,
+                'icon' => 'fa-brands fa-bootstrap',
+                'description' => 'Membangun tampilan responsif dan rapi menggunakan Bootstrap dan custom CSS untuk berbagai proyek web.',
             ],
             [
                 'name' => 'Java Desktop Development',
@@ -63,7 +70,14 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Backend Development',
                 'level' => 85,
                 'icon' => 'fa-brands fa-laravel',
-                'description' => 'Mengelola routing, controller, integrasi database Eloquent ORM, hingga deployment aplikasi live (hosting) seperti Railway.',
+                'description' => 'Mengelola routing, controller, Blade templating, integrasi database Eloquent ORM, hingga deployment aplikasi live (hosting) seperti Railway.',
+            ],
+            [
+                'name' => 'PHP Development',
+                'category' => 'Backend Development',
+                'level' => 78,
+                'icon' => 'fa-brands fa-php',
+                'description' => 'Membangun aplikasi web native PHP dengan MySQL, Bootstrap, dan struktur CRUD untuk kebutuhan bisnis seperti reservasi dan manajemen data.',
             ],
             [
                 'name' => 'Python & Flask',
@@ -103,11 +117,32 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Pemahaman mengenai konsep keamanan sistem dan implementasi dasar enkripsi (AES/RSA).',
             ],
             [
-                'name' => 'Mobile & Other Languages',
+                'name' => 'C++ & Logic Programming',
                 'category' => 'Tools & Security',
                 'level' => 65,
-                'icon' => 'fa-solid fa-mobile-screen',
-                'description' => 'Memiliki fondasi logika pemrograman yang kuat di C++ dan dasar pengembangan lintas platform menggunakan Flutter (Dart).',
+                'icon' => 'fa-solid fa-code',
+                'description' => 'Memiliki fondasi logika pemrograman yang kuat di C++ untuk struktur data, algoritma, dan pemecahan masalah dasar.',
+            ],
+            [
+                'name' => 'Flutter & Dart',
+                'category' => 'Frontend Development',
+                'level' => 70,
+                'icon' => 'fa-brands fa-flutter',
+                'description' => 'Membangun aplikasi mobile dengan navigasi antar halaman, struktur layar, dan interaksi dasar menggunakan Flutter dan Dart.',
+            ],
+            [
+                'name' => 'Node.js & Bot Automation',
+                'category' => 'Backend Development',
+                'level' => 75,
+                'icon' => 'fa-brands fa-node-js',
+                'description' => 'Mengembangkan bot WhatsApp dan otomasi berbasis JavaScript/Node.js untuk merespons pesan dan menjalankan perintah pengguna.',
+            ],
+            [
+                'name' => 'IoT & Embedded Systems',
+                'category' => 'Tools & Security',
+                'level' => 70,
+                'icon' => 'fa-solid fa-microchip',
+                'description' => 'Mengintegrasikan perangkat IoT dengan dashboard web untuk monitoring data praktikum secara real-time.',
             ],
             [
                 'name' => 'Deployment & Hosting',
@@ -124,6 +159,11 @@ class DatabaseSeeder extends Seeder
                 $skill
             );
         }
+
+        Skill::whereIn('name', [
+            'JavaScript (DOM & Node.js)',
+            'Mobile & Other Languages',
+        ])->delete();
 
         $legacyProjectUpdates = [
             [
@@ -169,21 +209,6 @@ class DatabaseSeeder extends Seeder
                     'featured' => true,
                     'contribution_percentage' => 100,
                     'slug' => Str::slug('Membuat Navigasi') . '-' . rand(1000, 9999),
-                ],
-            ],
-            [
-                'match' => ['title' => 'Landing Page Portofolio'],
-                'data' => [
-                    'title' => 'Login dan Merubah Background Flutter',
-                    'description' => 'Project Flutter untuk membuat halaman login sederhana dan fitur mengubah background tampilan aplikasi.',
-                    'tech_stack' => ['Flutter', 'Dart', 'Mobile App'],
-                    'role' => 'Mobile Developer',
-                    'image_path' => 'images/projects/Navigasi_flutter.png',
-                    'project_url' => null,
-                    'github_url' => 'https://github.com/MuhammadAmirN/login-dan-merubah-background-flutter-',
-                    'featured' => false,
-                    'contribution_percentage' => 100,
-                    'slug' => Str::slug('Login dan Merubah Background Flutter') . '-' . rand(1000, 9999),
                 ],
             ],
         ];
@@ -319,13 +344,13 @@ class DatabaseSeeder extends Seeder
                 'contribution_percentage' => 100,
             ],
             [
-                'title' => 'Login dan Merubah Background Flutter',
-                'description' => 'Project Flutter untuk membuat halaman login sederhana dan fitur mengubah background tampilan aplikasi.',
-                'tech_stack' => ['Flutter', 'Dart', 'Mobile App'],
-                'role' => 'Mobile Developer',
-                'image_path' => 'images/projects/Navigasi_flutter.png',
+                'title' => 'Bot WhatsApp',
+                'description' => 'Bot WhatsApp otomatis berbasis Node.js dan JavaScript untuk merespons pesan, menjalankan perintah, dan mempermudah interaksi pengguna melalui chat.',
+                'tech_stack' => ['Node.js', 'JavaScript'],
+                'role' => 'Backend Developer',
+                'image_path' => null,
                 'project_url' => null,
-                'github_url' => 'https://github.com/MuhammadAmirN/login-dan-merubah-background-flutter-',
+                'github_url' => 'https://github.com/MuhammadAmirN/botWA',
                 'featured' => false,
                 'contribution_percentage' => 100,
             ],
