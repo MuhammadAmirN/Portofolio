@@ -38,11 +38,26 @@
     <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Portofolio</span>
-                <h2 class="section-title">Proyek Unggulan</h2>
+            <div class="section-header projects-intro">
+                <div class="projects-intro-copy">
+                    <span class="section-subtitle">Portofolio</span>
+                    <h2 class="section-title">Proyek yang Saya Bangun</h2>
+                    <p class="projects-lead">
+                        Dari dashboard IoT hingga bot WhatsApp — setiap proyek menyelesaikan masalah nyata dengan stack yang berbeda.
+                    </p>
+                </div>
+                <div class="projects-stats glass-card">
+                    <div class="projects-stat">
+                        <span class="projects-stat-number">{{ count($projects) }}</span>
+                        <span class="projects-stat-label">Total Proyek</span>
+                    </div>
+                    <div class="projects-stat">
+                        <span class="projects-stat-number">{{ collect($projects)->filter(fn ($project) => (bool) data_get($project, 'featured', false))->count() }}</span>
+                        <span class="projects-stat-label">Unggulan</span>
+                    </div>
+                </div>
             </div>
-            
+
             @php
                 $projectImageMap = [
                     'Dashboard IoT' => 'images/projects/Dashboard_IoT.png',
@@ -51,105 +66,166 @@
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
                     'Pemesanan Laundry' => 'images/projects/pemesanan-loundry_py.png',
                     'Membuat Navigasi' => 'images/projects/Navigasi_flutter.png',
-                    'Login dan Merubah Background Flutter' => 'images/projects/Navigasi_flutter.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
                     'Manajemen Data Mahasiswa' => 'images/projects/data-mhs.png',
                     'Portofolio Website' => 'images/projects/portfolio.png',
                     'Sistem Kasir Sederhana' => 'images/projects/kasir_java.png',
                     'Review System' => 'images/projects/penilaian-pada-e-commerce.png',
                 ];
-                $uniqueTags = [];
-                foreach($projects as $p) {
-                    $techStack = data_get($p, 'tech_stack', []);
-                    if (is_array($techStack)) {
-                        foreach($techStack as $t) {
-                            $uniqueTags[] = trim($t);
-                        }
+
+                $resolveProjectImage = function ($project) use ($projectImageMap) {
+                    $path = data_get($project, 'image_path') ?: ($projectImageMap[data_get($project, 'title')] ?? null);
+                    if (!$path) {
+                        return null;
                     }
-                }
-                $uniqueTags = array_unique($uniqueTags);
+
+                    return str_starts_with($path, 'images/')
+                        ? asset($path)
+                        : asset('storage/' . $path);
+                };
+
+                $featuredProjects = collect($projects)->filter(fn ($project) => (bool) data_get($project, 'featured', false))->values();
+                $otherProjects = collect($projects)->filter(fn ($project) => ! (bool) data_get($project, 'featured', false))->values();
+                $heroProject = $featuredProjects->first(fn ($project) => data_get($project, 'title') === 'Dashboard IoT') ?? $featuredProjects->first();
+                $featuredGrid = $featuredProjects->reject(fn ($project) => data_get($project, 'title') === data_get($heroProject, 'title'))->values();
             @endphp
 
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                @foreach($uniqueTags as $tag)
-                    <button class="filter-btn" data-filter="{{ strtolower($tag) }}">{{ $tag }}</button>
-                @endforeach
-            </div>
-            
-            <div class="projects-grid">
-                @foreach($projects as $project)
-                    @php
-                        $projectTitle = data_get($project, 'title');
-                        $projectTechStack = data_get($project, 'tech_stack', []);
-                        $projectImagePath = data_get($project, 'image_path');
-                        $projectGithubUrl = data_get($project, 'github_url');
-                        $projectProjectUrl = data_get($project, 'project_url');
-                        $projectDescription = data_get($project, 'description');
-                        $projectRole = data_get($project, 'role');
-                        $projectFeatured = (bool) data_get($project, 'featured', false);
-                        $resolvedImagePath = $projectImagePath ?: ($projectImageMap[$projectTitle] ?? null);
-                    @endphp
-                    <div class="project-card-wrapper" data-categories="{{ implode(',', $projectTechStack ?: []) }}">
-                        <article class="project-card glass-card @if($projectFeatured) featured-card @endif">
-                            <div class="project-img-wrapper">
-                                @if($resolvedImagePath)
-                                    @php
-                                        $imageSrc = str_starts_with($resolvedImagePath, 'images/')
-                                            ? asset($resolvedImagePath)
-                                            : asset('storage/' . $resolvedImagePath);
-                                    @endphp
-                                    <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $projectTitle }}">
-                                        <img src="{{ $imageSrc }}" alt="{{ $projectTitle }}" class="project-img" loading="lazy">
-                                    </a>
-                                @else
-                                    <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-card-media-link" aria-label="Lihat source code {{ $projectTitle }}">
-                                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">
-                                            <i class="fa-solid fa-image fa-3x"></i>
+            @if($heroProject)
+                @php
+                    $heroTitle = data_get($heroProject, 'title');
+                    $heroGithubUrl = data_get($heroProject, 'github_url');
+                    $heroProjectUrl = data_get($heroProject, 'project_url');
+                    $heroImageSrc = $resolveProjectImage($heroProject);
+                @endphp
+                <article class="project-spotlight project-reveal">
+                    <div class="project-spotlight-media">
+                        @if($heroImageSrc)
+                            <img src="{{ $heroImageSrc }}" alt="{{ $heroTitle }}" class="project-spotlight-img" loading="lazy">
+                        @else
+                            <div class="project-spotlight-placeholder">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                        @endif
+                        <div class="project-spotlight-overlay"></div>
+                    </div>
+                    <div class="project-spotlight-body glass-card">
+                        <span class="project-eyebrow"><i class="fa-solid fa-star"></i> Proyek Unggulan</span>
+                        <h3 class="project-spotlight-title">{{ $heroTitle }}</h3>
+                        <p class="project-spotlight-role">{{ data_get($heroProject, 'role') }}</p>
+                        <p class="project-spotlight-desc">{{ data_get($heroProject, 'description') }}</p>
+                        @if($heroTech = data_get($heroProject, 'tech_stack', []))
+                            <div class="project-tech-row">
+                                @foreach($heroTech as $tech)
+                                    <span class="project-tech-pill">{{ $tech }}</span>
+                                @endforeach
+                            </div>
+                        @endif
+                        <div class="project-spotlight-actions">
+                            @if($heroProjectUrl)
+                                <a href="{{ $heroProjectUrl }}" target="_blank" rel="noreferrer" class="btn btn-primary btn-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+                            @endif
+                            @if($heroGithubUrl)
+                                <a href="{{ $heroGithubUrl }}" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm">
+                                    <i class="fa-brands fa-github"></i> Source Code
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                </article>
+            @endif
+
+            @if($featuredGrid->isNotEmpty())
+                <div class="projects-featured-grid">
+                    @foreach($featuredGrid as $index => $project)
+                        @php
+                            $title = data_get($project, 'title');
+                            $githubUrl = data_get($project, 'github_url');
+                            $projectUrl = data_get($project, 'project_url');
+                            $imageSrc = $resolveProjectImage($project);
+                            $techStack = data_get($project, 'tech_stack', []);
+                        @endphp
+                        <article class="project-card project-card--featured project-reveal" style="--reveal-delay: {{ $index * 0.08 }}s">
+                            <a href="{{ $githubUrl }}" target="_blank" rel="noreferrer" class="project-card-hit" aria-label="Lihat {{ $title }} di GitHub">
+                                <div class="project-img-wrapper">
+                                    @if($imageSrc)
+                                        <img src="{{ $imageSrc }}" alt="{{ $title }}" class="project-img" loading="lazy">
+                                    @else
+                                        <div class="project-img-placeholder"><i class="fa-solid fa-code"></i></div>
+                                    @endif
+                                    <div class="project-img-overlay">
+                                        <span class="project-overlay-cta"><i class="fa-brands fa-github"></i> Lihat Repo</span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <span class="project-eyebrow">Featured</span>
+                                    <h3 class="project-title">{{ $title }}</h3>
+                                    <p class="project-role">{{ data_get($project, 'role') }}</p>
+                                    <p class="project-desc">{{ data_get($project, 'description') }}</p>
+                                    @if($techStack)
+                                        <div class="project-tech-row">
+                                            @foreach(array_slice($techStack, 0, 3) as $tech)
+                                                <span class="project-tech-pill">{{ $tech }}</span>
+                                            @endforeach
                                         </div>
-                                    </a>
+                                    @endif
+                                </div>
+                            </a>
+                            @if($projectUrl)
+                                <a href="{{ $projectUrl }}" target="_blank" rel="noreferrer" class="project-link project-link--inline">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                                </a>
+                            @endif
+                        </article>
+                    @endforeach
+                </div>
+            @endif
+
+            @if($otherProjects->isNotEmpty())
+                <div class="projects-more-header project-reveal">
+                    <h3 class="projects-more-title">Proyek Lainnya</h3>
+                    <p class="projects-more-desc">Eksplorasi lebih lanjut di berbagai bahasa dan platform.</p>
+                </div>
+                <div class="projects-compact-list">
+                    @foreach($otherProjects as $index => $project)
+                        @php
+                            $title = data_get($project, 'title');
+                            $githubUrl = data_get($project, 'github_url');
+                            $imageSrc = $resolveProjectImage($project);
+                            $techStack = data_get($project, 'tech_stack', []);
+                        @endphp
+                        <article class="project-compact project-reveal" style="--reveal-delay: {{ $index * 0.06 }}s">
+                            <a href="{{ $githubUrl }}" target="_blank" rel="noreferrer" class="project-compact-thumb" aria-hidden="true" tabindex="-1">
+                                @if($imageSrc)
+                                    <img src="{{ $imageSrc }}" alt="" loading="lazy">
+                                @else
+                                    <span class="project-compact-icon"><i class="fa-solid fa-folder-open"></i></span>
+                                @endif
+                            </a>
+                            <div class="project-compact-body">
+                                <div class="project-compact-top">
+                                    <h4 class="project-compact-title">
+                                        <a href="{{ $githubUrl }}" target="_blank" rel="noreferrer">{{ $title }}</a>
+                                    </h4>
+                                    <span class="project-compact-role">{{ data_get($project, 'role') }}</span>
+                                </div>
+                                <p class="project-compact-desc">{{ data_get($project, 'description') }}</p>
+                                @if($techStack)
+                                    <div class="project-tech-row project-tech-row--compact">
+                                        @foreach(array_slice($techStack, 0, 4) as $tech)
+                                            <span class="project-tech-pill">{{ $tech }}</span>
+                                        @endforeach
+                                    </div>
                                 @endif
                             </div>
-                            
-                            <div class="project-content">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                                    <h3 class="project-title" style="margin-bottom: 0;">
-                                        <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" style="color: inherit; text-decoration: none;">
-                                            {{ $projectTitle }}
-                                        </a>
-                                    </h3>
-                                    <span class="project-tag" style="background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); font-weight: bold;">
-                                        Peran: {{ $projectRole ?? 'Fullstack' }}
-                                    </span>
-                                </div>
-                                
-                                <div class="project-desc-box" style="margin: 1rem 0; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 8px; font-size: 0.95rem; color: #d1d5db;">
-                                    <p style="margin-bottom: 0;"><strong>Deskripsi:</strong> {{ $projectDescription }}</p>
-                                </div>
-                                
-                                <div class="project-tags">
-                                    @foreach($projectTechStack ?: [] as $tech)
-                                        <span class="project-tag">{{ $tech }}</span>
-                                    @endforeach
-                                </div>
-                                
-                                <div class="project-links">
-                                    @if($projectProjectUrl)
-                                        <a href="{{ $projectProjectUrl }}" target="_blank" rel="noreferrer" class="project-link">
-                                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                                        </a>
-                                    @endif
-                                    @if($projectGithubUrl)
-                                        <a href="{{ $projectGithubUrl }}" target="_blank" rel="noreferrer" class="project-link">
-                                            <i class="fa-brands fa-github"></i> Source Code
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
+                            <a href="{{ $githubUrl }}" target="_blank" rel="noreferrer" class="project-compact-arrow" aria-label="Buka {{ $title }}">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </article>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
 
@@ -334,417 +410,113 @@
         </div>
     </section>
 
+    @php $cvPdfUrl = asset('images/projects/CV_Amir.pdf'); @endphp
+
     <!-- CV Modal -->
-    <div id="cvPreviewModal" class="cv-modal">
-        <div class="cv-modal-content">
-            <span class="cv-close-btn" onclick="closeCvModal()">&times;</span>
-            <div style="text-align: right; margin-bottom: 1rem;">
-                <button class="btn btn-primary" onclick="window.print()">
-                    <i class="fa-solid fa-file-pdf" style="margin-right: 0.5rem;"></i> Simpan sebagai PDF
-                </button>
-            </div>
-            
-            <div class="cv-paper">
-                <div class="cv-body">
-                    <!-- CV Header -->
-                    <div class="cv-header-section">
-                        <h1 class="cv-name">MUHAMMAD AMIR NURUDIN</h1>
-                        <div class="cv-contact-info">
-                            <span>+62 821-4515-3914</span> |
-                            <span>muhamir6n@gmail.com</span> |
-                            <span>Klaten, Jawa Tengah</span>
-                        </div>
-                        <div class="cv-contact-links">
-                            <span>linkedin.com/in/muh-amir-n-a1a94b418/</span> |
-                            <span>github.com/MuhammadAmirN</span> |
-                            <span>Portfolio: amirdev.me</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Profil Section -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PROFIL</h2>
-                        <div class="cv-section-line"></div>
-                        <p class="cv-text">
-                            Mahasiswa Teknik Informatika Semester 6 di Universitas Duta Bangsa Surakarta yang fokus pada fullstack web development, IoT, dan pengembangan berbasis AI tools. Berpengalaman membangun aplikasi dengan Laravel, Python, Java, dan Node.js dari desain database sampai antarmuka. Siap berkontribusi pada proyek internship maupun junior developer dengan pendekatan yang rapi, cepat belajar, dan berorientasi hasil.
-                        </p>
-                    </div>
-                    
-                    <!-- Pendidikan Section -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PENDIDIKAN</h2>
-                        <div class="cv-section-line"></div>
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">S1 Teknik Informatika - Universitas Duta Bangsa Surakarta</span>
-                                <span class="cv-item-date">2023 - Sekarang</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Semester 6 (Aktif) | IPK Terakhir: 4.00</div>
-                            <p class="cv-text-muted">Mata Kuliah Relevan: Pemrograman Web, Pemrograman Mobile, Basis Data, Internet of Things (IoT), Struktur Data, Rekayasa Perangkat Lunak.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Keahlian Teknis Section -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">KEAHLIAN TEKNIS</h2>
-                        <div class="cv-section-line"></div>
-                        <div class="cv-skills-grid">
-                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap, Tailwind, Blade, responsive UI</p>
-                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Backend:</strong> PHP/Laravel, Python/Flask, Node.js/Express, Java</p>
-                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Database:</strong> MySQL, SQLite, query design, normalization, CRUD</p>
-                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>IoT:</strong> ESP32, Arduino, sensor integration, Wokwi, dashboard monitoring</p>
-                            <p class="cv-text" style="margin-bottom: 0.25rem;"><strong>Tools:</strong> Git, GitHub, REST API, deployment, debugging</p>
-                            <p class="cv-text" style="margin-bottom: 0;"><strong>Workflow:</strong> MVC, OOP, agile habits, AI-assisted development</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Akademik Dan Non Akademik Section -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PROJECT AKADEMIK DAN NON AKADEMIK</h2>
-                        <div class="cv-section-line"></div>
-                        
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Dashboard IoT - Bandul Matematis</span>
-                                <span class="cv-item-date">2026</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Fullstack Developer & IoT Engineer | github.com/MuhammadAmirN/Dashboard_IoT</div>
-                            <ul class="cv-bullet-list">
-                                <li>Membangun dashboard monitoring real-time untuk praktikum fisika berbasis Laravel dan MySQL.</li>
-                                <li>Mengintegrasikan visualisasi data sensor dan deployment publik untuk akses mudah.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Website Laundry Mataram</span>
-                                <span class="cv-item-date">2025</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Full Stack Developer | github.com/MuhammadAmirN/website_online_loundry</div>
-                            <ul class="cv-bullet-list">
-                                <li>Mengembangkan sistem manajemen laundry dengan fitur CRUD dan role-based access.</li>
-                                <li>Menyusun modul laporan dan alur transaksi menggunakan Laravel serta MySQL.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Enkripsi Data</span>
-                                <span class="cv-item-date">2025</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Java Developer | github.com/MuhammadAmirN/membuat-enkripsi-data</div>
-                            <ul class="cv-bullet-list">
-                                <li>Membangun aplikasi simulasi enkripsi data untuk menjaga kerahasiaan informasi.</li>
-                                <li>Menerapkan konsep kriptografi dasar untuk proses proteksi data.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Pemesanan Laundry</span>
-                                <span class="cv-item-date">2024</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Backend Developer | github.com/MuhammadAmirN/pemesanan-loundry</div>
-                            <ul class="cv-bullet-list">
-                                <li>Membangun sistem pemesanan berbasis Python dengan desain OOP.</li>
-                                <li>Mengelola data customer, booking, payment, dan evaluasi layanan.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Pemesanan Laundry</span>
-                                <span class="cv-item-date">2024</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Python Developer | github.com/MuhammadAmirN/pemesanan-loundry</div>
-                            <ul class="cv-bullet-list">
-                                <li>Mengembangkan aplikasi pemesanan laundry berbasis Python.</li>
-                                <li>Mengelola data order, layanan, dan status pengerjaan pelanggan.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Sistem Kasir Sederhana</span>
-                                <span class="cv-item-date">2024</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Fullstack Developer | github.com/MuhammadAmirN/kasir-sederhana</div>
-                            <ul class="cv-bullet-list">
-                                <li>Mengembangkan aplikasi POS desktop berbasis Java dengan GUI.</li>
-                                <li>Mengintegrasikan inventory, transaksi, dan laporan harian.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">RINGKASAN PORTOFOLIO</h2>
-                        <div class="cv-section-line"></div>
-                        <p class="cv-text" style="margin-bottom: 0;">Portfolio berisi 12 project aktif di GitHub, mencakup web app Laravel, Python API, sistem reservasi, landing page, dan IoT dashboard. Detail project lain tersedia di <strong>amirdev.me</strong>.</p>
-                    </div>
-
-                    <!-- Pengalaman & Kontribusi Section -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title-ats">PENGALAMAN PRAKTIK & KONTRIBUSI</h2>
-                        <div class="cv-section-line"></div>
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">KKN-T Universitas Duta Bangsa Surakarta (Desa Karangasem)</span>
-                                <span class="cv-item-date">Des 2025 - Jan 2026</span>
-                            </div>
-                            <div class="cv-item-subtitle-ats">Divisi Publikasi, Dokumentasi & Desain | UMKM Digitalization Project</div>
-                            <ul class="cv-bullet-list">
-                                <li>Merancang materi promosi dan identitas visual program.</li>
-                                <li>Mendukung digitalisasi UMKM melalui aset konten dan dokumentasi.</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-item-ats">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Internship Readiness Status</span>
-                                <span class="cv-item-date">Current</span>
-                            </div>
-                            <ul class="cv-bullet-list">
-                                <li>Siap untuk bekerja fulltime sesuai kebutuhan perusahaan.</li>
-                                <li>Memiliki portfolio aktif dengan dokumentasi GitHub.</li>
-                                <li>Cepat belajar dan nyaman dengan self-directed learning.</li>
-                            </ul>
-                        </div>
-                    </div>
+    <div id="cvPreviewModal" class="cv-modal" aria-hidden="true">
+        <div class="cv-modal-content" role="dialog" aria-labelledby="cvModalTitle">
+            <div class="cv-modal-header">
+                <h3 id="cvModalTitle">Curriculum Vitae</h3>
+                <div class="cv-modal-actions">
+                    <a href="{{ $cvPdfUrl }}" download="CV_Muhammad_Amir_Nurudin.pdf" class="btn btn-primary btn-sm">
+                        <i class="fa-solid fa-download" style="margin-right: 0.4rem;"></i>Download PDF
+                    </a>
+                    <button type="button" class="cv-close-btn" onclick="closeCvModal()" aria-label="Tutup">&times;</button>
                 </div>
             </div>
+            <iframe src="{{ $cvPdfUrl }}" class="cv-pdf-frame" title="CV Muhammad Amir Nurudin"></iframe>
         </div>
     </div>
-    
+
     <style>
         .cv-modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            background-color: rgba(0,0,0,0.85);
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
-            padding: 20px 0;
+            padding: 1.25rem;
         }
         .cv-modal-content {
-            background-color: #f3f4f6;
-            margin: 2% auto;
-            padding: 24px;
+            background-color: #111827;
+            margin: 0 auto;
+            padding: 1.25rem;
             border-radius: 12px;
-            width: 90%;
-            max-width: 900px;
-            position: relative;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 920px;
+            height: calc(100vh - 2.5rem);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .cv-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        .cv-modal-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #f9fafb;
+        }
+        .cv-modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
         .cv-close-btn {
-            color: #4b5563;
-            float: right;
-            font-size: 32px;
-            font-weight: bold;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 2rem;
+            line-height: 1;
             cursor: pointer;
-            margin-top: -15px;
-            transition: color 0.2s;
+            padding: 0;
         }
         .cv-close-btn:hover {
             color: #ef4444;
         }
-        
-        /* CV Paper Styling - ATS B&W Portrait */
-        .cv-paper {
-            background: #ffffff;
-            color: #000000;
-            font-family: 'Times New Roman', Times, serif;
-            padding: 40px 50px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border-radius: 4px;
-            line-height: 1.4;
-            max-width: 100%;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
-        .cv-body {
+        .cv-pdf-frame {
+            flex: 1;
             width: 100%;
-        }
-
-        .cv-header-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .cv-header-section .cv-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #000000;
-            margin: 0 0 8px 0;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .cv-contact-info, .cv-contact-links {
-            font-size: 11px;
-            color: #333333;
-            margin-bottom: 4px;
-        }
-
-        .cv-contact-info span, .cv-contact-links span {
-            margin: 0 6px;
-        }
-
-        .cv-section {
-            margin-top: 18px;
-        }
-
-        .cv-section-title-ats {
-            font-size: 14px;
-            font-weight: bold;
-            color: #000000;
-            margin: 0 0 2px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cv-section-line {
-            height: 1px;
-            background-color: #000000;
-            margin-bottom: 8px;
-            width: 100%;
-        }
-
-        .cv-text {
-            font-size: 11px;
-            color: #111111;
-            margin-bottom: 6px;
-            text-align: justify;
-            line-height: 1.4;
-        }
-
-        .cv-text-muted {
-            font-size: 11px;
-            color: #333333;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-
-        .cv-item-ats {
-            margin-bottom: 12px;
-        }
-
-        .cv-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 2px;
-            color: #000000;
-        }
-
-        .cv-item-title {
-            font-weight: bold;
-        }
-
-        .cv-item-date {
-            font-weight: bold;
-            font-size: 11px;
-        }
-
-        .cv-item-subtitle-ats {
-            font-style: italic;
-            font-size: 11px;
-            color: #222222;
-            margin-bottom: 4px;
-        }
-
-        .cv-skills-grid {
-            font-size: 11px;
-            line-height: 1.4;
-        }
-
-        .cv-bullet-list {
-            list-style-type: disc;
-            margin-top: 2px;
-            margin-bottom: 6px;
-            padding-left: 20px;
-        }
-
-        .cv-bullet-list li {
-            font-size: 11px;
-            color: #111111;
-            margin-bottom: 2px;
-            line-height: 1.35;
-        }
-
-        @media print {
-            @page {
-                size: A4;
-                margin: 8mm;
-            }
-            body * { visibility: hidden; }
-            #cvPreviewModal, .cv-modal-content, .cv-paper, .cv-paper * { visibility: visible; }
-            .cv-modal {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: auto;
-                background-color: transparent !important;
-                backdrop-filter: none !important;
-                padding: 0 !important;
-            }
-            .cv-modal-content {
-                background-color: transparent !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                box-shadow: none !important;
-                border-radius: 0 !important;
-            }
-            .cv-paper {
-                box-shadow: none !important;
-                padding: 0px !important;
-                margin: 0 !important;
-                width: 100% !important;
-                transform: scale(0.82);
-                transform-origin: top left;
-                width: 122% !important;
-                border-radius: 0 !important;
-            }
-            .cv-close-btn, button, .btn {
-                display: none !important;
-            }
+            border: none;
+            border-radius: 8px;
+            background: #fff;
         }
         @media (max-width: 768px) {
-            .cv-paper {
-                padding: 20px 25px;
+            .cv-modal {
+                padding: 0.75rem;
             }
-            .cv-item-header {
+            .cv-modal-content {
+                height: calc(100vh - 1.5rem);
+                padding: 1rem;
+            }
+            .cv-modal-header {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-            .cv-item-date {
-                margin-top: 2px;
             }
         }
     </style>
     <script>
         function openCvModal() {
             document.getElementById('cvPreviewModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.getElementById('cvPreviewModal').setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
         function closeCvModal() {
             document.getElementById('cvPreviewModal').style.display = 'none';
+            document.getElementById('cvPreviewModal').setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
         }
-        window.onclick = function(event) {
+        window.addEventListener('click', function(event) {
             var modal = document.getElementById('cvPreviewModal');
-            if (event.target == modal) {
+            if (event.target === modal) {
                 closeCvModal();
             }
-        }
+        });
     </script>
 @endsection

@@ -27,38 +27,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Project Filtering Logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card-wrapper');
+    // 2. Project scroll reveal
+    const projectRevealItems = document.querySelectorAll('.project-reveal');
 
-    if (filterButtons.length > 0 && projectCards.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
+    if (projectRevealItems.length > 0) {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-                const filterValue = button.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const categoriesStr = card.getAttribute('data-categories') || '';
-                    const categories = categoriesStr.split(',').map(c => c.trim().toLowerCase());
-                    
-                    if (filterValue === 'all' || categories.includes(filterValue.toLowerCase())) {
-                        card.style.display = 'block';
-                        // Add fade-in animation
-                        card.style.opacity = '0';
-                        setTimeout(() => {
-                            card.style.transition = 'opacity 0.4s ease';
-                            card.style.opacity = '1';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
+        if (prefersReducedMotion) {
+            projectRevealItems.forEach(item => item.classList.add('is-visible'));
+        } else {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
                     }
                 });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12,
             });
-        });
+
+            projectRevealItems.forEach(item => revealObserver.observe(item));
+        }
     }
 
     // 3. Navigation Link Active Tracking on Scroll
