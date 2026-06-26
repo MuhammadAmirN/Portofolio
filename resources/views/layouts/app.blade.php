@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portofolio Profesional | Muhammad Amir Nurudin</title>
+    <title> Muhammad Amir Nurudin - Portofolio</title>
     
     <!-- Meta SEO -->
     <meta name="description" content="Portofolio resmi Muhammad Amir Nurudin - Front-end Oriented Web Developer. Menampilkan keahlian frontend, backend, database, dan proyek web.">

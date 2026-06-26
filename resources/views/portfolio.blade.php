@@ -50,9 +50,11 @@
                     'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
                     'Pemesanan Laundry' => 'images/projects/pemesanan-loundry_py.png',
+                    'Membuat Navigasi' => 'images/projects/Navigasi_flutter.png',
+                    'Login dan Merubah Background Flutter' => 'images/projects/Navigasi_flutter.png',
                     'Reservasi Cafe' => 'images/projects/reservasi_cafe.png',
                     'Manajemen Data Mahasiswa' => 'images/projects/data-mhs.png',
-                    'Portfolio Website' => 'images/projects/portfolio.png',
+                    'Portofolio Website' => 'images/projects/portfolio.png',
                     'Sistem Kasir Sederhana' => 'images/projects/kasir_java.png',
                     'Review System' => 'images/projects/penilaian-pada-e-commerce.png',
                 ];
