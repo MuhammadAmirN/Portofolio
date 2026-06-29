@@ -567,18 +567,26 @@ a {
     position: relative;
     min-height: 360px;
     overflow: hidden;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background-color: #1a233a; /* ganti dari gradient */
+    padding: 13px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-spotlight-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 1.7px solid #ffffff;
+    border-radius: 25px;
     transition: transform 0.6s ease;
+    object-fit: unset;
 }
 
 .project-spotlight:hover .project-spotlight-img {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .project-spotlight-overlay {
@@ -705,17 +713,20 @@ a {
 
 .project-img-wrapper {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    position: relative;
-    overflow: hidden;
+    background-color: #1a232a;
+    padding: 14px;
+    box-sizing: border-box;
 }
 
 .project-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
     transition: transform 0.5s ease;
+    display: block;
+    transform: scale(1.03);
 }
 
 .project-card:hover .project-img {
@@ -841,15 +852,21 @@ a {
     width: 88px;
     height: 68px;
     border-radius: 10px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1e293b, #0f172a);
+    box-sizing: border-box;
+    background-color: #1a232a;
+    padding: 5px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
 }
 
 .project-compact-thumb img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: unset;
+    display: block;
+    border: 1.5px solid #ffffff;
+    border-radius: 6px;
 }
 
 .project-compact-icon {
@@ -974,23 +991,29 @@ a {
     align-items: center;
     margin-bottom: 35px;
     color: #ffffff;
+    padding-right: 36px;
 }
 .dot-icon {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 14px;
+    margin-left: -32px;
+    margin-right: 20px;
 }
 .dot-icon.purple { background-color: #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
 .dot-icon.blue { background-color: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
 
-/* Jalur Garis Vertikal Timeline (Gaya Cyberpunk Transparan) */
-.timeline-wrapper {
-    border-left: 2px solid rgba(255, 255, 255, 0.07); /* Garis redup elegan */
-    padding-left: 30px;
-    position: relative;
-    margin-left: 6px;
+
+/* 1. Berikan garis pembatas di sebelah kanan kolom pertama (Education) */
+.journey-column:first-child {
+    border-right: 5px solid rgba(255, 255, 255, 0.15); /* Garis tipis transparan biar elegan */
+    padding-right: 40px; /* Kasih jarak aman antara teks Education dengan garis tengah */
+}
+
+/* 2. Supaya seimbang, tambahkan sedikit padding kiri di kolom kedua (Certification) */
+.journey-column:last-child {/* Garis tipis transparan biar elegan */
+    padding-left: 40px; /* Kasih jarak aman antara garis tengah dengan teks Certification */
 }
 
 /* Kontainer Item Timeline */
@@ -1015,6 +1038,7 @@ a {
 }
 
 /* 🌟 SENTUHAN GEMINI: Efek Glow Neon saat Card/Item di-hover */
+/*
 .journey-column:nth-child(1) .timeline-item:hover::before { 
     border-color: #a855f7; 
     background-color: #a855f7;
@@ -1027,7 +1051,53 @@ a {
     box-shadow: 0 0 12px #3b82f6;
     transform: scale(1.2);
 }
+*/
+/* ====================================================== */
+/* CSS UNTUK EFEK BULATAN BERKEDIP (SENTUHAN GEMINI V2)   */
+/* ====================================================== */
 
+/* 1. Definisikan Animasi Berkedip */
+@keyframes geminiBlink {
+    0% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* 2. Kolom EDUCATION: Ketika Teks/Item Di-hover, Bulatan Berkedip Ungu */
+.journey-column:nth-child(1) .timeline-item:hover::before {
+    border-color: #a855f7; 
+    background-color: #a855f7;
+    box-shadow: 0 0 15px #a855f7, 0 0 5px #a855f7;
+    
+    /* Jalankan animasi berkedip berdurasi 0.8 detik secara terus-menerus */
+    animation: geminiBlink 0.8s infinite ease-in-out; 
+}
+
+/* 3. Kolom CERTIFICATION: Ketika Teks/Item Di-hover, Bulatan Berkedip Biru */
+.journey-column:nth-child(2) .timeline-item:hover::before {
+    border-color: #3b82f6; 
+    background-color: #3b82f6;
+    box-shadow: 0 0 15px #3b82f6, 0 0 5px #3b82f6;
+    
+    /* Jalankan animasi berkedip berdurasi 0.8 detik secara terus-menerus */
+    animation: geminiBlink 0.8s infinite ease-in-out;
+}
+
+/* 4. Sentuhan Tambahan: Beri Efek Transisi Halus pada Judul Saat Di-hover */
+.timeline-item:hover .item-title {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
 /* Badge Tahun/Waktu (Gaya Kapsul Transparan) */
 .timeline-badge {
     font-size: 11px;
@@ -1065,8 +1135,9 @@ a {
 /* Supaya Bagus di HP (Responsive) */
 @media (max-width: 991px) {
     .journey-grid {
-        grid-template-columns: 1fr; /* Jadi 1 kolom bertumpuk di HP */
-        gap: 60px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Jadi 1 kolom bertumpuk di HP */
+        gap: 0 80px;
     }
     .journey-section .section-title {
         font-size: 28px;
