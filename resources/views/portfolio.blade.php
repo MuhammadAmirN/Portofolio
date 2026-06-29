@@ -15,7 +15,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
-                    <a href="{{ asset('images/projects/CV_Amir.pdf') }}" class="btn btn-secondary" target="_blank">
+                    <a href="{{ asset('images/projects/CV-Amir.pdf') }}" class="btn btn-secondary" target="_blank">
                         <i class="fa-solid fa-download" style="margin-right: 0.5rem;"></i>Download CV</a>
                 </div>
             </div>
@@ -411,7 +411,7 @@
         </div>
     </section>
 
-    @php $cvPdfUrl = asset('images/projects/CV_Amir.pdf'); @endphp
+    @php $cvPdfUrl = asset('images/projects/CV-Amir.pdf'); @endphp
 
     <!-- CV Modal -->
     <div id="cvPreviewModal" class="cv-modal" aria-hidden="true">
@@ -419,7 +419,7 @@
             <div class="cv-modal-header">
                 <h3 id="cvModalTitle">Curriculum Vitae</h3>
                 <div class="cv-modal-actions">
-                    <a href="{{ $cvPdfUrl }}" download="CV_Amir.pdf" class="btn btn-primary btn-sm">
+                    <a href="{{ $cvPdfUrl }}" download="CV-Amir.pdf" class="btn btn-primary btn-sm">
                         <i class="fa-solid fa-download" style="margin-right: 0.4rem;"></i>Download PDF
                     </a>
                     <button type="button" class="cv-close-btn" onclick="closeCvModal()" aria-label="Tutup">&times;</button>
