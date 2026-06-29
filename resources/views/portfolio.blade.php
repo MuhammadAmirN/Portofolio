@@ -6,16 +6,17 @@
     <section id="home" class="section hero" style="padding-top: 2rem;">
         <div class="container hero-inner">
             <div class="hero-content">
-                <span class="hero-tag">Fullstack Web Developer | AI-Augmented Engineer</span>
+                <span class="hero-tag">Fullstack Web Developer | Frontend Developer</span>
                 <h1 class="hero-title">
                     Hi, I'm <span>Muhammad Amir Nurudin</span>.
                 </h1>
                 <p class="hero-desc">
-                    Mahasiswa IT Semester 6 yang berfokus membangun produk digital modern, responsif, dan <em>user-centric</em>. Saya mengintegrasikan teknologi Frontend & Backend dengan bantuan perkakas AI modern untuk menghasilkan solusi yang efisien, cepat, dan <em>scalable</em>.
+                    Mahasiswa Teknik Informatika semester 6 yang berfokus pada pengembangan aplikasi web <em>full-stack</em> menggunakan Laravel, Node.js, dan teknologi modern. Senang mempelajari hal baru, membangun aplikasi yang mudah digunakan, serta memanfaatkan AI sebagai alat bantu untuk meningkatkan produktivitas dalam proses pengembangan.
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
-                    <a href="#" class="btn btn-secondary" onclick="openCvModal(); return false;"><i class="fa-solid fa-download" style="margin-right: 0.5rem;"></i>Download CV</a>
+                    <a href="{{ asset('images/projects/CV_Amir.pdf') }}" class="btn btn-secondary" target="_blank">
+                        <i class="fa-solid fa-download" style="margin-right: 0.5rem;"></i>Download CV</a>
                 </div>
             </div>
             
@@ -418,13 +419,15 @@
             <div class="cv-modal-header">
                 <h3 id="cvModalTitle">Curriculum Vitae</h3>
                 <div class="cv-modal-actions">
-                    <a href="{{ $cvPdfUrl }}" download="CV_Muhammad_Amir_Nurudin.pdf" class="btn btn-primary btn-sm">
+                    <a href="{{ $cvPdfUrl }}" download="CV_Amir.pdf" class="btn btn-primary btn-sm">
                         <i class="fa-solid fa-download" style="margin-right: 0.4rem;"></i>Download PDF
                     </a>
                     <button type="button" class="cv-close-btn" onclick="closeCvModal()" aria-label="Tutup">&times;</button>
                 </div>
             </div>
-            <iframe src="{{ $cvPdfUrl }}" class="cv-pdf-frame" title="CV Muhammad Amir Nurudin"></iframe>
+            <iframe data="{{ $cvPdfUrl }}" type="application/pdf" class="cv-pdf-frame" style="width : 100%; height: 70vh;" title="CV Muhammad Amir Nurudin">
+                <p>Browser Anda tidak mendukung tampilan PDF. Silakan download CV untuk melihatnya. <a href="{{ $cvPdfUrl }}"> Download CV</a>.</p>
+            </iframe>
         </div>
     </div>
 
