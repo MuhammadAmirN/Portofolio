@@ -4,7 +4,8 @@
         "api/index.php": {
             "runtime": "vercel-php@0.6.0",
             "memory": 1024,
-            "maxDuration": 10
+            "maxDuration": 10,
+            "framework": null
         }
     },
     "routes": [
