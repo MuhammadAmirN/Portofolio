@@ -61,7 +61,7 @@
 
             @php
                 $projectImageMap = [
-                    'Dashboard IoT' => 'images/projects/Dashboard_IoT.png',
+                    'Dashboard IoT' => 'images/projects/IoT.png',
                     'Website Laundry Mataram' => 'images/projects/Loundry_mataram.png',
                     'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
@@ -425,7 +425,7 @@
                     <button type="button" class="cv-close-btn" onclick="closeCvModal()" aria-label="Tutup">&times;</button>
                 </div>
             </div>
-            <iframe data="{{ $cvPdfUrl }}" type="application/pdf" class="cv-pdf-frame" style="width : 100%; height: 70vh;" title="CV Muhammad Amir Nurudin">
+            <iframe src="{{ $cvPdfUrl }}" type="application/pdf" class="cv-pdf-frame" style="width : 100%; height: 70vh;" title="CV Muhammad Amir Nurudin">
                 <p>Browser Anda tidak mendukung tampilan PDF. Silakan download CV untuk melihatnya. <a href="{{ $cvPdfUrl }}"> Download CV</a>.</p>
             </iframe>
         </div>

@@ -30,10 +30,10 @@ class PortfolioController extends Controller
             ],
             [
                 'title' => 'Dashboard IoT',
-                'description' => 'Membangun aplikasi web IoT untuk praktikum bandul matematis. Meliputi pengembangan frontend, logika backend Laravel, integrasi database MySQL, hingga deployment dan hosting aplikasi.',
+                'description' => 'Membangun aplikasi web IoT untuk praktikum bandul matematis. Meliputi pengembangan frontend, Api, logika backend Laravel, integrasi database MySQL, hingga deployment dan hosting aplikasi.',
                 'tech_stack' => ['Laravel', 'MySQL', 'JavaScript', 'IoT'],
                 'role' => 'Fullstack Developer',
-                'image_path' => 'images/projects/Dashboard_IoT.png',
+                'image_path' => 'images/projects/IoT.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/Dashboard_IoT',
                 'featured' => true,
