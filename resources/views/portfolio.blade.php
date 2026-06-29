@@ -25,7 +25,7 @@
                 <div class="hero-avatar-card glass-card">
                     <img src="{{ asset('images/avatar.jpg') }}" alt="Muhammad Amir Nurudin" class="hero-avatar">
                     <h3 class="hero-avatar-name">Amir Nurudin</h3>
-                    <p class="hero-avatar-title">Fullstack Developer • Front End Focus</p>
+                    <p class="hero-avatar-title">Fullstack & Frontend Developer</p>
                     <div class="hero-socials">
                         <a href="https://github.com/MuhammadAmirN" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -308,6 +308,53 @@
             </div>
         </div>
     </section>
+
+    <!-- education & experience section -->
+
+<section class="journey-section">
+    <div class="container">
+        <span class="sub-title">MY JOURNEY</span>
+        <h2 class="section-title">Experience, Education & <span>Certification</span></h2>
+
+        <div class="journey-grid">
+            <div class="journey-column">
+                <h3 class="column-title"><span class="dot-icon purple"></span>Education</h3>
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <span class="timeline-badge badge-purple">2023 – Sekarang</span>
+                        <h4 class="item-title">S1 Teknik Informatika</h4>
+                        <span class="item-company">Universitas Duta Bangsa Surakarta</span>
+                        <p class="item-desc"> Mempelajari berbagai teknologi dalam pengembangan perangkat lunak, termasuk fullstack web development, IoT, dan pengembangan berbasis AI tools. Berpengalaman membangun aplikasi dengan Laravel, Python, Java, dan Node.js dari desain database sampai antarmuka </p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-badge badge-purple">2019 – 2022</span>
+                        <h4 class="item-title">IPA</h4>
+                        <span class="item-company">Madrasah Aliyah Negeri Kupang (NTT)</span>
+                        <p class="item-desc">Mempelajari berbagai mata pelajaran ilmu pengetahuan alam, logika matematika, serta aktif dalam kegiatan pengembangan bahasa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journey-column">
+                <h3 class="column-title"><span class="dot-icon blue"></span>Certification</h3>
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <span class="timeline-badge badge-blue">2024</span>
+                        <h4 class="item-title">Entrepreneur Summit Singapore and Malaysia</h4>
+                        <span class="item-company">Universitas Duta Bangsa Surakarta</span>
+                        <p class="item-desc">Menguasai framework python untuk mengoptimalkan startup dan mengetahui AI/Artificial Intelligence Assist.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-badge badge-blue">Desember 2023</span>
+                        <h4 class="item-title">Public Speaking dalam acara YEF23</h4>
+                        <span class="item-company">Universitas Duta Bangsa Surakarta</span>
+                        <p class="item-desc">Mengembangkan kapabilitas komunikasi publik dan memahami penyampaian gagasan solutif pada acara tersebut.</p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">

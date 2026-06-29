@@ -936,6 +936,143 @@ a {
 .project-link:hover {
     color: var(--primary-color);
 }
+/* Layout Section Utama (Menyesuaikan Dark Mode Portofoliomu) */
+.journey-section {
+    padding: 100px 0;
+    color: #ffffff; /* Text utama dibuat putih bersih */
+}
+.journey-section .sub-title {
+    color: #8da2fb; /* Ungu/Biru muda khas aksen keahlianmu */
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+.journey-section .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: -0.5px;
+}
+.journey-section .section-title span {
+    color: #a855f7; /* Gradasi aksen ungu neon */
+}
+
+/* Membagi menjadi 2 Kolom Sejajar */
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+/* Judul Kolom & Icon Bulat */
+.column-title {
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    color: #ffffff;
+}
+.dot-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 14px;
+}
+.dot-icon.purple { background-color: #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+.dot-icon.blue { background-color: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+
+/* Jalur Garis Vertikal Timeline (Gaya Cyberpunk Transparan) */
+.timeline-wrapper {
+    border-left: 2px solid rgba(255, 255, 255, 0.07); /* Garis redup elegan */
+    padding-left: 30px;
+    position: relative;
+    margin-left: 6px;
+}
+
+/* Kontainer Item Timeline */
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+/* Bulatan kecil di setiap point timeline (Awalnya redup) */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #0f172a; /* Mengikuti background gelap dalam */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    left: -37px;
+    top: 6px;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🌟 SENTUHAN GEMINI: Efek Glow Neon saat Card/Item di-hover */
+.journey-column:nth-child(1) .timeline-item:hover::before { 
+    border-color: #a855f7; 
+    background-color: #a855f7;
+    box-shadow: 0 0 12px #a855f7;
+    transform: scale(1.2);
+}
+.journey-column:nth-child(2) .timeline-item:hover::before { 
+    border-color: #3b82f6; 
+    background-color: #3b82f6;
+    box-shadow: 0 0 12px #3b82f6;
+    transform: scale(1.2);
+}
+
+/* Badge Tahun/Waktu (Gaya Kapsul Transparan) */
+.timeline-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.badge-purple { background-color: rgba(168, 85, 247, 0.1); color: #c084fc; }
+.badge-blue { background-color: rgba(59, 130, 246, 0.1); color: #60a5fa; }
+
+/* Detail Konten */
+.item-title {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+.item-company {
+    font-size: 13.5px;
+    color: #94a3b8; /* Abu-abu terang agar kontras */
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+.item-desc {
+    font-size: 14px;
+    color: #64748b; /* Abu-abu redup untuk deskripsi biar hirarkinya bagus */
+    line-height: 1.7;
+}
+
+/* Supaya Bagus di HP (Responsive) */
+@media (max-width: 991px) {
+    .journey-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom bertumpuk di HP */
+        gap: 60px;
+    }
+    .journey-section .section-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+}
 
 /* --- Contact Section --- */
 .contact-grid {
