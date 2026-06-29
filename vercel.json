@@ -12,8 +12,5 @@
             "src": "/(.*)",
             "dest": "api/index.php"
         }
-    ],
-    "projectSettings": {
-        "framework": null
-    }
+    ]
 }
