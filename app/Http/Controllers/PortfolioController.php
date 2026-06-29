@@ -19,13 +19,13 @@ class PortfolioController extends Controller
         $canonicalProjects = collect([
             [
                 'title' => 'Website Laundry Mataram',
-                'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi di Mataram.',
+                'description' => 'Platform e-commerce laundry berbasis Laravel untuk pemesanan layanan dan pengelolaan transaksi di Mataram laundry.',
                 'tech_stack' => ['Laravel', 'MySQL', 'Bootstrap'],
                 'role' => 'Fullstack Developer',
                 'image_path' => 'images/projects/Loundry_mataram.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/website_online_loundry',
-                'featured' => false,
+                'featured' => true,
                 'contribution_percentage' => 100,
             ],
             [
@@ -42,8 +42,8 @@ class PortfolioController extends Controller
             [
                 'title' => 'Enkripsi Data',
                 'description' => 'Aplikasi edukasi dan simulasi enkripsi data untuk melindungi informasi menggunakan algoritma kriptografi.',
-                'tech_stack' => ['Java', 'Cryptography', 'Security'],
-                'role' => 'Java Developer',
+                'tech_stack' => ['Python', 'Cryptography', 'Security'],
+                'role' => 'Python Developer',
                 'image_path' => 'images/projects/membuat-enkripsi-data.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/membuat-enkripsi-data',
@@ -80,7 +80,7 @@ class PortfolioController extends Controller
                 'image_path' => 'images/projects/Navigasi_flutter.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/membuat_navigasi',
-                'featured' => true,
+                'featured' => false,
                 'contribution_percentage' => 100,
             ],
             [
@@ -97,8 +97,8 @@ class PortfolioController extends Controller
             [
                 'title' => 'Manajemen Data Mahasiswa',
                 'description' => 'Aplikasi API manajemen data mahasiswa menggunakan framework Flask dan database SQLite dengan fitur CRUD lengkap.',
-                'tech_stack' => ['Python', 'Flask', 'SQLite'],
-                'role' => 'Backend Developer',
+                'tech_stack' => ['Java', 'Swing', 'MySQL'],
+                'role' => 'JavaBackend Developer',
                 'image_path' => 'images/projects/data-mhs.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/MANAJEMEN-DATA-MAHASISWA-MENGGUNAKAN-FLASK-DAN-SQLITE',
@@ -120,7 +120,7 @@ class PortfolioController extends Controller
                 'title' => 'Sistem Kasir Sederhana',
                 'description' => 'Aplikasi desktop Java untuk transaksi kasir, inventory, dan laporan penjualan.',
                 'tech_stack' => ['Java', 'Swing', 'MySQL'],
-                'role' => 'Fullstack Developer',
+                'role' => 'Java Developer',
                 'image_path' => 'images/projects/kasir_java.png',
                 'project_url' => null,
                 'github_url' => 'https://github.com/MuhammadAmirN/kasir-sederhana',

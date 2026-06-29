@@ -150,6 +150,7 @@
                         <article class="project-card project-card--featured project-reveal" style="--reveal-delay: {{ $index * 0.08 }}s">
                             <a href="{{ $githubUrl }}" target="_blank" rel="noreferrer" class="project-card-hit" aria-label="Lihat {{ $title }} di GitHub">
                                 <div class="project-img-wrapper">
+                                    <div class="project-img-frame">
                                     @if($imageSrc)
                                         <img src="{{ $imageSrc }}" alt="{{ $title }}" class="project-img" loading="lazy">
                                     @else
@@ -158,6 +159,7 @@
                                     <div class="project-img-overlay">
                                         <span class="project-overlay-cta"><i class="fa-brands fa-github"></i> Lihat Repo</span>
                                     </div>
+                                 </div>
                                 </div>
                                 <div class="project-content">
                                     <span class="project-eyebrow">Featured</span>
