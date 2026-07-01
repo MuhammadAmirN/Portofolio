@@ -61,7 +61,7 @@
 
             @php
                 $projectImageMap = [
-                    'Dashboard IoT' => 'images/projects/iot.png',
+                    'Dashboard IoT' => 'images/projects/IoT.png',
                     'Website Laundry Mataram' => 'images/projects/Loundry_mataram.png',
                     'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
