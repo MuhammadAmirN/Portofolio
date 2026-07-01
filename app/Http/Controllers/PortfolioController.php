@@ -5,17 +5,82 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Skill;
-use App\Models\Message;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 
 class PortfolioController extends Controller
 {
     public function index(): View
     {
-        $skills = Skill::orderBy('level', 'desc')->get()->groupBy('category');
+        $skills = collect([
+            [
+                'name' => 'Laravel',
+                'category' => 'Backend Development',
+                'level' => 95,
+                'icon' => 'fa-brands fa-laravel',
+                'description' => 'Membangun aplikasi web dengan arsitektur yang rapi dan maintainable.',
+            ],
+            [
+                'name' => 'PHP',
+                'category' => 'Backend Development',
+                'level' => 92,
+                'icon' => 'fa-brands fa-php',
+                'description' => 'Pengembangan backend dan logika aplikasi berbasis PHP modern.',
+            ],
+            [
+                'name' => 'Node.js',
+                'category' => 'Backend Development',
+                'level' => 80,
+                'icon' => 'fa-brands fa-node-js',
+                'description' => 'Server-side JavaScript untuk automation dan API sederhana.',
+            ],
+            [
+                'name' => 'JavaScript',
+                'category' => 'Frontend Development',
+                'level' => 94,
+                'icon' => 'fa-brands fa-js',
+                'description' => 'Interaksi UI, animasi, dan pengalaman pengguna yang responsif.',
+            ],
+            [
+                'name' => 'HTML & CSS',
+                'category' => 'Frontend Development',
+                'level' => 96,
+                'icon' => 'fa-brands fa-html5',
+                'description' => 'Menyusun tampilan web yang rapi, adaptif, dan konsisten.',
+            ],
+            [
+                'name' => 'Flutter',
+                'category' => 'Frontend Development',
+                'level' => 78,
+                'icon' => 'fa-brands fa-uncharted',
+                'description' => 'Membangun UI mobile yang cepat dan mudah dipelihara.',
+            ],
+            [
+                'name' => 'MySQL',
+                'category' => 'Database & Tools',
+                'level' => 88,
+                'icon' => 'fa-solid fa-database',
+                'description' => 'Perancangan database relasional dan query dasar yang efisien.',
+            ],
+            [
+                'name' => 'Git & GitHub',
+                'category' => 'Database & Tools',
+                'level' => 90,
+                'icon' => 'fa-brands fa-github',
+                'description' => 'Version control, kolaborasi, dan deployment berbasis repository.',
+            ],
+            [
+                'name' => 'Python',
+                'category' => 'Database & Tools',
+                'level' => 84,
+                'icon' => 'fa-brands fa-python',
+                'description' => 'Otomasi, scripting, dan proyek berbasis data atau desktop.',
+            ],
+        ])->groupBy('category')->map(function ($items) {
+            return $items->map(function ($skill) {
+                return (object) $skill;
+            })->values();
+        });
+
         $canonicalProjects = collect([
             [
                 'title' => 'Website Laundry Mataram',
@@ -156,19 +221,5 @@ class PortfolioController extends Controller
         })->values();
 
         return view('portfolio', compact('skills', 'projects'));
-    }
-
-    public function storeContact(Request $request): RedirectResponse
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'subject' => 'nullable|string|max:255',
-            'message' => 'required|string|min:10',
-        ]);
-
-        Message::create($validated);
-
-        return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim. Terima kasih!');
     }
 }

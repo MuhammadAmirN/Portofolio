@@ -30,11 +30,6 @@
                 <li><a href="#skills" class="nav-link">Keahlian</a></li>
                 <li><a href="#projects" class="nav-link">Proyek</a></li>
                 <li><a href="#contact" class="nav-link">Kontak</a></li>
-                <li>
-                    <a href="{{ route('login') }}" class="btn btn-secondary btn-sm" style="margin-left: 1rem;">
-                        <i class="fa-solid fa-lock" style="font-size: 0.8rem; margin-right: 0.4rem;"></i>Admin
-                    </a>
-                </li>
             </ul>
             <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars"></i>

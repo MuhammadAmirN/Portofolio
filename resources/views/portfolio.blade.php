@@ -61,7 +61,7 @@
 
             @php
                 $projectImageMap = [
-                    'Dashboard IoT' => 'images/projects/IoT.png',
+                    'Dashboard IoT' => 'images/projects/iot.png',
                     'Website Laundry Mataram' => 'images/projects/Loundry_mataram.png',
                     'Enkripsi Data' => 'images/projects/membuat-enkripsi-data.png',
                     'Pemesanan Tiket Bola' => 'images/projects/pemesanan_tiket_bola.png',
@@ -75,14 +75,31 @@
                 ];
 
                 $resolveProjectImage = function ($project) use ($projectImageMap) {
-                    $path = data_get($project, 'image_path') ?: ($projectImageMap[data_get($project, 'title')] ?? null);
-                    if (!$path) {
+                    $candidates = array_values(array_filter([
+                        data_get($project, 'image_path'),
+                        $projectImageMap[data_get($project, 'title')] ?? null,
+                    ]));
+
+                    foreach ($candidates as $path) {
+                        if (file_exists(public_path($path))) {
+                            return asset($path);
+                        }
+
+                        $lowerPath = strtolower($path);
+                        if ($lowerPath !== $path && file_exists(public_path($lowerPath))) {
+                            return asset($lowerPath);
+                        }
+                    }
+
+                    $fallback = $candidates[0] ?? null;
+
+                    if (!$fallback) {
                         return null;
                     }
 
-                    return str_starts_with($path, 'images/')
-                        ? asset($path)
-                        : asset('storage/' . $path);
+                    return str_starts_with($fallback, 'images/')
+                        ? asset($fallback)
+                        : asset('storage/' . $fallback);
                 };
 
                 $featuredProjects = collect($projects)->filter(fn ($project) => (bool) data_get($project, 'featured', false))->values();
@@ -403,58 +420,20 @@
                 </div>
                 
                 <div class="contact-form-card glass-card">
-                    <!-- Session Success / Error Alert -->
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            <i class="fa-solid fa-circle-check" style="margin-right: 0.5rem;"></i> {{ session('success') }}
+                    <div class="contact-direct">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Langsung ke inbox saya</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            Karena halaman ini dibuat statis, silakan hubungi saya lewat email atau LinkedIn tanpa form database.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                            <a href="mailto:muhamir6n@gmail.com" class="btn btn-primary">
+                                <i class="fa-solid fa-envelope"></i> Email Saya
+                            </a>
+                            <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" rel="noreferrer" class="btn btn-secondary">
+                                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                            </a>
                         </div>
-                    @endif
-                    
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <i class="fa-solid fa-circle-xmark" style="margin-right: 0.5rem;"></i> Harap periksa formulir di bawah untuk kesalahan.
-                        </div>
-                    @endif
-
-                    <form action="{{ route('portfolio.contact') }}" method="POST">
-                        @csrf
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Nama Lengkap</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Nama Anda" value="{{ old('name') }}" required>
-                                @error('name')
-                                    <span class="form-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Alamat Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="email@contoh.com" value="{{ old('email') }}" required>
-                                @error('email')
-                                    <span class="form-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subjek</label>
-                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Tujuan pesan (Misal: Tawaran Magang)" value="{{ old('subject') }}">
-                            @error('subject')
-                                <span class="form-error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Pesan</label>
-                            <textarea name="message" id="message" rows="5" class="form-control" placeholder="Tuliskan detail pesan Anda di sini..." required>{{ old('message') }}</textarea>
-                            @error('message')
-                                <span class="form-error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-                            <i class="fa-solid fa-paper-plane" style="margin-right: 0.5rem;"></i>Kirim Pesan
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

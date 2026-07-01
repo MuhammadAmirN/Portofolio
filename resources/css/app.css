@@ -1673,7 +1673,8 @@ a {
     .hero-inner {
         grid-template-columns: 1fr;
         gap: 3rem;
-        text-align: center;
+        text-align: left;
+        justify-items: start;
         padding-top: 2rem;
     }
     
@@ -1683,7 +1684,7 @@ a {
     }
     
     .hero-actions {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .about-grid {
@@ -1734,6 +1735,11 @@ a {
         border-bottom: 1px solid var(--border-color);
         gap: 1.5rem;
     }
+
+    .section-header {
+        text-align: left;
+        margin-bottom: 2.5rem;
+    }
     
     .form-row {
         grid-template-columns: 1fr;
@@ -1751,6 +1757,20 @@ a {
     .hero-desc {
         font-size: 1rem;
         max-width: 100%;
+        margin-left: 0;
+    }
+
+    .hero-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .hero-illustration {
+        justify-content: flex-start;
+    }
+
+    .hero-avatar-card {
+        margin-left: 0;
     }
 
     .section-title {
