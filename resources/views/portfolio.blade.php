@@ -74,11 +74,24 @@
                     'Review System' => 'images/projects/penilaian-pada-e-commerce.png',
                 ];
 
-                $resolveProjectImage = function ($project) use ($projectImageMap) {
+                $projectImageAliases = [
+                    'Dashboard IoT' => [
+                        'images/projects/image.png',
+                        'images/projects/iot.png',
+                        'images/projects/IoT.png',
+                    ],
+                ];
+
+                $resolveProjectImage = function ($project) use ($projectImageMap, $projectImageAliases) {
+                    $title = data_get($project, 'title');
                     $candidates = array_values(array_filter([
                         data_get($project, 'image_path'),
-                        $projectImageMap[data_get($project, 'title')] ?? null,
+                        $projectImageMap[$title] ?? null,
                     ]));
+                    $candidates = array_values(array_unique(array_merge(
+                        $candidates,
+                        $projectImageAliases[$title] ?? []
+                    )));
 
                     foreach ($candidates as $path) {
                         if (file_exists(public_path($path))) {
