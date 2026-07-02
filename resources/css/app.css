@@ -1767,8 +1767,12 @@ a {
 
     .hero-tag {
         max-width: 100%;
-        white-space: normal;
-        line-height: 1.35;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        line-height: 1.2;
+        font-size: 0.72rem;
+        padding: 0.35rem 0.7rem;
     }
 
     .hero-desc {
@@ -1886,8 +1890,9 @@ a {
     }
 
     .hero-tag {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.8rem;
+        font-size: 0.68rem;
+        padding: 0.3rem 0.62rem;
+        margin-top: 50px;
     }
 
     .container {
