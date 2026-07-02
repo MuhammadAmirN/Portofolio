@@ -1674,7 +1674,7 @@ a {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: left;
-        justify-items: start;
+        justify-items: center;
         padding-top: 2rem;
     }
     
@@ -1685,6 +1685,16 @@ a {
     
     .hero-actions {
         justify-content: flex-start;
+    }
+
+    .hero-illustration {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-avatar-card {
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .about-grid {
@@ -1767,6 +1777,7 @@ a {
 
     .hero-illustration {
         justify-content: center;
+        width: 100%;
     }
 
     .hero-avatar-card {
