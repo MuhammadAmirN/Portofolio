@@ -438,11 +438,11 @@
                         <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
                             Karena halaman ini dibuat statis, silakan hubungi saya lewat email atau LinkedIn tanpa form database.
                         </p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        <div style="display: flex; flex-wrap: wrap;">
                             <a href="mailto:muhamir6n@gmail.com" class="btn btn-primary">
                                 <i class="fa-solid fa-envelope"></i> Email Saya
                             </a>
-                            <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" rel="noreferrer" class="btn btn-secondary">
+                            <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn" class="btn btn-secondary">
                                 <i class="fa-brands fa-linkedin"></i> LinkedIn
                             </a>
                         </div>
