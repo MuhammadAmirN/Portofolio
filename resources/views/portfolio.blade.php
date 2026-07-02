@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Hero Section -->
-    <section id="home" class="section hero" style="padding-top: 2rem;">
+    <section id="home" class="section hero">
         <div class="container hero-inner">
             <div class="hero-content">
                 <span class="hero-tag">Fullstack Web Developer | Frontend Developer</span>
@@ -399,9 +399,7 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Mari Bekerja Sama</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
-                        Apakah Anda memiliki proyek menarik, tawaran magang/pekerjaan, atau sekadar ingin menyapa? Silakan kirimkan pesan, saya akan merespons secepat mungkin.
-                    </p>
+
                     
                     <div class="contact-info-list">
                         <div class="contact-info-item">
@@ -434,15 +432,16 @@
                 
                 <div class="contact-form-card glass-card">
                     <div class="contact-direct">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Langsung ke inbox saya</h3>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Langsung inbox saya</h3> 
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Apakah Anda memiliki proyek menarik, tawaran magang/pekerjaan, atau sekadar ingin menyapa? Silakan kirimkan pesan, saya akan merespons secepat mungkin.</p>
                         <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                            Karena halaman ini dibuat statis, silakan hubungi saya lewat email atau LinkedIn tanpa form database.
-                        </p>
-                        <div style="display: flex; flex-wrap: wrap;">
+                             silakan hubungi saya lewat email atau LinkedIn. 
+                            </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 2.75rem;">
                             <a href="mailto:muhamir6n@gmail.com" class="btn btn-primary">
                                 <i class="fa-solid fa-envelope"></i> Email Saya
                             </a>
-                            <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" aria-label="LinkedIn" class="btn btn-secondary">
+                            <a href="https://linkedin.com/in/muh-amir-n-a1a94b418/" target="_blank" rel="noreferrer" class="btn btn-secondary">
                                 <i class="fa-brands fa-linkedin"></i> LinkedIn
                             </a>
                         </div>
