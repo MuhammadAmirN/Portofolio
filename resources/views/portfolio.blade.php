@@ -346,7 +346,7 @@
 <section class="journey-section">
     <div class="container">
         <span class="sub-title">MY JOURNEY</span>
-        <h2 class="section-title">Experience, Education & <span>Certification</span></h2>
+        <h2 class="section-title">Education & <span>Certification</span></h2>
 
         <div class="journey-grid">
             <div class="journey-column">

@@ -1788,6 +1788,37 @@ a {
         justify-content: space-around;
     }
 
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+    }
+
+    .journey-column:first-child {
+        border-right: 0;
+        padding-right: 0;
+    }
+
+    .journey-column:last-child {
+        padding-left: 0;
+    }
+
+    .column-title {
+        padding-right: 0;
+        margin-bottom: 1.25rem;
+    }
+
+    .dot-icon {
+        margin-left: 0;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+        left: 0;
+    }
+
     .project-spotlight {
         grid-template-columns: 1fr;
     }
